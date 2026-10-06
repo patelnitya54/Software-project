@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40" fill="none">
+  <!-- Logo Mark -->
+  <rect x="2" y="2" width="36" height="36" rx="10" fill="#2563EB" />
+  <!-- Subtle inner gradient shine -->
+  <path d="M2 12C2 6.47715 6.47715 2 12 2H28C33.5228 2 38 6.47715 38 12V20H2V12Z" fill="white" fill-opacity="0.12"/>
+  <!-- "JS" Monogram -->
+  <text x="20" y="25" fill="white" font-family="'Inter', -apple-system, sans-serif" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="-0.5px">JS</text>
+  
+  <!-- Logotype "JOBSEEK" -->
+  <text x="48" y="26" fill="#0F172A" font-family="'Inter', -apple-system, sans-serif" font-size="20" font-weight="700" letter-spacing="-0.5px">JOB<tspan fill="#2563EB">SEEK</tspan></text>
+</svg>

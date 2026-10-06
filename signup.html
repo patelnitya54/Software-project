@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — JobSeek</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVBAR
+       ========================================================================= -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="js-brand">
+        <div class="js-logo-icon">JS</div>
+        <div class="js-brand-text">JOB<span>SEEK</span></div>
+      </a>
+
+      <div class="navbar-actions">
+        <span style="font-size: var(--font-sm); color: var(--text-secondary);">Already have an account?</span>
+        <a href="index.html" class="btn btn-outline">Log In</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       SIGNUP FORM WRAPPER
+       ========================================================================= -->
+  <main class="auth-page-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="js-brand auth-logo-center">
+          <div class="js-logo-icon">JS</div>
+          <div class="js-brand-text">JOB<span>SEEK</span></div>
+        </div>
+        <h1 class="auth-title">Create your JobSeek account</h1>
+        <p class="auth-subtitle">Build your profile and discover opportunities that fit you.</p>
+      </div>
+
+      <!-- Alert for success or error feedback -->
+      <div id="signupAlert" class="form-alert" style="display: none;"></div>
+
+      <form id="signupForm" class="auth-form" novalidate>
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="signupName">Full Name</label>
+          <input 
+            type="text" 
+            id="signupName" 
+            class="form-control" 
+            placeholder="e.g. Alex Morgan" 
+            required
+            autocomplete="name"
+          >
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="signupEmail">Email Address</label>
+          <input 
+            type="email" 
+            id="signupEmail" 
+            class="form-control" 
+            placeholder="name@work-email.com" 
+            required
+            autocomplete="email"
+          >
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label class="form-label" for="signupPassword">Password</label>
+          <input 
+            type="password" 
+            id="signupPassword" 
+            class="form-control" 
+            placeholder="Create a strong password (min 8 chars)" 
+            required
+            autocomplete="new-password"
+          >
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label class="form-label" for="signupConfirmPassword">Confirm Password</label>
+          <input 
+            type="password" 
+            id="signupConfirmPassword" 
+            class="form-control" 
+            placeholder="Re-type your password" 
+            required
+            autocomplete="new-password"
+          >
+          <div class="invalid-feedback"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 0.5rem;">
+          Create Account
+        </button>
+
+        <!-- Social Auth Option -->
+        <div class="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button type="button" class="btn btn-social" onclick="alert('Social Google sign-in is simulated for this frontend prototype. Please use the form above to sign up.');">
+          <svg class="social-icon" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-footer-text">
+          Already have an account? <a href="index.html">Log In</a>
+        </div>
+
+        <div class="auth-demo-notice">
+          <strong>Note for Reviewers:</strong><br>
+          Account details are saved in browser <code>localStorage</code> for this frontend-only prototype (no live database required).
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container footer-bottom" style="border: none; padding-top: 0;">
+      <span>&copy; 2026 JobSeek Technologies Inc.</span>
+      <span>Frontend Prototype</span>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

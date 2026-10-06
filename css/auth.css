@@ -1,0 +1,93 @@
+/* ==========================================================================
+   JOBSEEK AUTHENTICATION STYLES (css/auth.css)
+   ========================================================================== */
+
+.auth-page-wrapper {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+
+.auth-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  max-width: 480px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo-center {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+}
+
+.auth-title {
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-footer-text {
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+}
+
+.auth-footer-text a {
+  color: var(--primary);
+  font-weight: var(--weight-semibold);
+  transition: color var(--transition-fast);
+}
+
+.auth-footer-text a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.auth-demo-notice {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-subtle);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.password-requirements {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Auth Social Button */
+.social-icon {
+  width: 18px;
+  height: 18px;
+}
