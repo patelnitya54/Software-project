@@ -1,0 +1,588 @@
+{
+  "project": "JobPath",
+  "feature": "Candidate Matching Profile",
+  "purpose": "Collect candidate preferences and calculate job-to-candidate matching scores for all eligible jobs.",
+
+  "candidate_matching_questions": [
+    {
+      "id": "Q1",
+      "field": "target_roles",
+      "question": "What type of role are you looking for?",
+      "type": "multi_select_search",
+      "required": true,
+      "options_source": "job_role_database",
+      "max_selections": 5,
+      "matching_weight": 25,
+      "matching_method": "semantic_role_similarity"
+    },
+    {
+      "id": "Q2",
+      "field": "skills",
+      "question": "Which skills or technologies do you want to use in your next job?",
+      "type": "multi_select_with_custom",
+      "required": true,
+      "options_source": "resume_extracted_skills",
+      "allow_custom": true,
+      "matching_weight": 25,
+      "matching_method": "skill_similarity"
+    },
+    {
+      "id": "Q3",
+      "field": "experience",
+      "question": "How many years of professional experience do you have?",
+      "type": "number_or_slider",
+      "required": true,
+      "min": 0,
+      "max": 40,
+      "unit": "years",
+      "matching_weight": 10,
+      "matching_method": "experience_range_match"
+    },
+    {
+      "id": "Q4",
+      "field": "work_mode",
+      "question": "What work environment do you prefer?",
+      "type": "multi_select",
+      "required": true,
+      "options": [
+        "Remote",
+        "Hybrid",
+        "On-site"
+      ],
+      "matching_weight": 10,
+      "matching_method": "work_mode_match"
+    },
+    {
+      "id": "Q5",
+      "field": "employment_type",
+      "question": "What type of employment are you open to?",
+      "type": "multi_select",
+      "required": true,
+      "options": [
+        "Full-time",
+        "Part-time",
+        "Internship",
+        "Contract",
+        "Freelance"
+      ],
+      "matching_weight": 8,
+      "matching_method": "employment_type_match"
+    },
+    {
+      "id": "Q6",
+      "field": "preferred_locations",
+      "question": "Where would you like to work?",
+      "type": "multi_select_search",
+      "required": true,
+      "options": [
+        "Specific city",
+        "Anywhere in India",
+        "International",
+        "Remote"
+      ],
+      "allow_custom_locations": true,
+      "matching_weight": 8,
+      "matching_method": "location_similarity"
+    },
+    {
+      "id": "Q7",
+      "field": "relocation",
+      "question": "Are you willing to relocate for a suitable job?",
+      "type": "single_select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No",
+        "Maybe"
+      ],
+      "matching_weight": 5,
+      "matching_method": "relocation_requirement_match"
+    },
+    {
+      "id": "Q8",
+      "field": "industries",
+      "question": "Which industries are you interested in?",
+      "type": "multi_select",
+      "required": true,
+      "options": [
+        "AI / ML",
+        "Software / IT",
+        "FinTech",
+        "Healthcare",
+        "E-Commerce",
+        "Education",
+        "Gaming",
+        "Automotive",
+        "Robotics",
+        "Energy",
+        "Finance",
+        "Consulting",
+        "Marketing",
+        "Media",
+        "Telecommunications",
+        "Manufacturing",
+        "Other"
+      ],
+      "matching_weight": 5,
+      "matching_method": "industry_similarity"
+    },
+    {
+      "id": "Q9",
+      "field": "company_size",
+      "question": "What company size do you prefer?",
+      "type": "multi_select",
+      "required": false,
+      "options": [
+        "Startup: 1-50 employees",
+        "Small: 51-200 employees",
+        "Medium: 201-500 employees",
+        "Large: 501-1000 employees",
+        "Enterprise: 1000+ employees"
+      ],
+      "matching_weight": 3,
+      "matching_method": "company_size_match"
+    },
+    {
+      "id": "Q10",
+      "field": "minimum_salary",
+      "question": "What is your minimum expected salary or CTC?",
+      "type": "number",
+      "required": true,
+      "currency": "INR",
+      "matching_weight": 6,
+      "matching_method": "salary_threshold_match"
+    },
+    {
+      "id": "Q11",
+      "field": "work_authorization",
+      "question": "What is your current work authorization status?",
+      "type": "single_select",
+      "required": false,
+      "options": [
+        "Indian citizen",
+        "Valid work authorization",
+        "Requires sponsorship",
+        "Not applicable"
+      ],
+      "matching_weight": 5,
+      "matching_method": "work_authorization_match"
+    },
+    {
+      "id": "Q12",
+      "field": "remote_timezone",
+      "question": "Which time zones are you comfortable working in for remote jobs?",
+      "type": "multi_select",
+      "required": false,
+      "options": [
+        "India / IST",
+        "Asia",
+        "Middle East",
+        "Europe",
+        "North America",
+        "South America",
+        "Australia / Pacific",
+        "Any timezone"
+      ],
+      "matching_weight": 3,
+      "matching_method": "timezone_match"
+    },
+    {
+      "id": "Q13",
+      "field": "availability",
+      "question": "When can you start?",
+      "type": "single_select",
+      "required": false,
+      "options": [
+        "Immediately",
+        "Within 2 weeks",
+        "Within 1 month",
+        "1-3 months",
+        "Specific date"
+      ],
+      "matching_weight": 4,
+      "matching_method": "availability_match"
+    },
+    {
+      "id": "Q14",
+      "field": "deal_breakers",
+      "question": "What are your job deal-breakers?",
+      "type": "multi_select_with_custom",
+      "required": false,
+      "options": [
+        "Salary below minimum",
+        "On-site work",
+        "Relocation",
+        "Night shifts",
+        "Specific industry",
+        "No sponsorship",
+        "Required skill missing",
+        "Other"
+      ],
+      "matching_weight": 0,
+      "matching_method": "hard_filter",
+      "rule": "If a job violates a selected deal-breaker, exclude the job."
+    },
+    {
+      "id": "Q15",
+      "field": "career_priorities",
+      "question": "What matters most to you in your next job?",
+      "type": "multi_select",
+      "required": false,
+      "max_selections": 5,
+      "options": [
+        "Salary",
+        "Career growth",
+        "Learning",
+        "Work-life balance",
+        "Remote / flexible work",
+        "Job security",
+        "Company reputation",
+        "Interesting work",
+        "Benefits"
+      ],
+      "matching_weight": 3,
+      "matching_method": "job_attribute_similarity"
+    },
+    {
+      "id": "Q16",
+      "field": "job_post_age",
+      "question": "How recent should the job posting be?",
+      "type": "single_select",
+      "required": false,
+      "options": [
+        "Last 7 days",
+        "Last 14 days",
+        "Last 30 days",
+        "Last 60 days",
+        "Any"
+      ],
+      "matching_weight": 0,
+      "matching_method": "filter"
+    }
+  ],
+
+  "resume_data": {
+    "source": "AI_resume_parser",
+    "do_not_ask_if_found_in_resume": true,
+    "extract": [
+      "education",
+      "degree",
+      "college",
+      "cgpa",
+      "technical_skills",
+      "soft_skills",
+      "projects",
+      "certifications",
+      "previous_companies",
+      "previous_job_titles",
+      "years_of_experience",
+      "previous_industries",
+      "achievements"
+    ],
+    "use_for_matching": true
+  },
+
+  "job_data_required": {
+    "job_id": "",
+    "job_title": "",
+    "company": "",
+    "employment_type": "",
+    "industry": "",
+    "location": [],
+    "work_mode": "",
+    "salary_min": null,
+    "salary_max": null,
+    "required_skills": [],
+    "preferred_skills": [],
+    "experience_min": 0,
+    "experience_max": null,
+    "company_size": "",
+    "work_authorization": "",
+    "sponsorship_available": false,
+    "timezone": [],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "",
+    "application_url": ""
+  },
+
+  "matching_algorithm": {
+    "type": "weighted_hybrid_matching",
+
+    "step_1": {
+      "name": "Hard Filters",
+      "description": "Remove jobs that violate mandatory candidate requirements before calculating the percentage.",
+      "filters": [
+        {
+          "field": "deal_breakers",
+          "action": "exclude_job"
+        },
+        {
+          "field": "employment_type",
+          "action": "exclude_job_if_no_match"
+        },
+        {
+          "field": "relocation",
+          "action": "exclude_if_required_and_candidate_unwilling"
+        },
+        {
+          "field": "work_authorization",
+          "action": "exclude_if_candidate_is_not_eligible"
+        }
+      ]
+    },
+
+    "step_2": {
+      "name": "Calculate Individual Scores",
+      "scores": {
+        "role_match": {
+          "weight": 25,
+          "method": "semantic_similarity",
+          "range": "0-100"
+        },
+        "skill_match": {
+          "weight": 25,
+          "method": "required_and_preferred_skill_overlap",
+          "range": "0-100"
+        },
+        "experience_match": {
+          "weight": 10,
+          "method": "experience_range_comparison",
+          "range": "0-100"
+        },
+        "work_mode_match": {
+          "weight": 10,
+          "method": "candidate_preference_vs_job_mode",
+          "range": "0-100"
+        },
+        "employment_match": {
+          "weight": 8,
+          "method": "employment_type_comparison",
+          "range": "0-100"
+        },
+        "location_match": {
+          "weight": 8,
+          "method": "city_country_remote_similarity",
+          "range": "0-100"
+        },
+        "salary_match": {
+          "weight": 6,
+          "method": "minimum_salary_comparison",
+          "range": "0-100"
+        },
+        "industry_match": {
+          "weight": 5,
+          "method": "industry_similarity",
+          "range": "0-100"
+        },
+        "company_size_match": {
+          "weight": 3,
+          "method": "company_size_comparison",
+          "range": "0-100"
+        },
+        "career_priority_match": {
+          "weight": 3,
+          "method": "preference_similarity",
+          "range": "0-100"
+        },
+        "work_authorization_match": {
+          "weight": 5,
+          "method": "eligibility_comparison",
+          "range": "0-100"
+        },
+        "timezone_match": {
+          "weight": 3,
+          "method": "timezone_overlap",
+          "range": "0-100"
+        },
+        "availability_match": {
+          "weight": 4,
+          "method": "start_date_comparison",
+          "range": "0-100"
+        }
+      }
+    },
+
+    "step_3": {
+      "name": "Weighted Score",
+      "formula": "weighted_score = SUM(score_i * weight_i) / SUM(active_weight_i)",
+      "normalization": "Normalize only the active weights so the final score is always between 0 and 100."
+    },
+
+    "step_4": {
+      "name": "Final Match Percentage",
+      "formula": "final_match_percentage = weighted_score",
+      "range": "0-100",
+      "round": 2
+    }
+  },
+
+  "skill_matching": {
+    "candidate_sources": [
+      "Q2_skills",
+      "resume.technical_skills",
+      "resume.projects",
+      "resume.experience"
+    ],
+    "job_sources": [
+      "required_skills",
+      "preferred_skills"
+    ],
+    "similarity": {
+      "exact_match": 1.0,
+      "synonym": 0.9,
+      "closely_related": 0.7,
+      "partially_related": 0.4,
+      "no_match": 0.0
+    },
+    "formula": "matched_required_skill_score / total_required_skill_score * 100"
+  },
+
+  "role_matching": {
+    "candidate_sources": [
+      "Q1_target_roles",
+      "resume.previous_job_titles",
+      "resume.projects"
+    ],
+    "job_sources": [
+      "job_title",
+      "job_description"
+    ],
+    "similarity": {
+      "exact_role": 100,
+      "strongly_related_role": 85,
+      "related_role": 65,
+      "weakly_related_role": 35,
+      "unrelated_role": 0
+    }
+  },
+
+  "salary_matching": {
+    "rules": [
+      {
+        "condition": "job_salary_max >= candidate_minimum_salary",
+        "score": 100
+      },
+      {
+        "condition": "job_salary_max >= candidate_minimum_salary * 0.8",
+        "score": 60
+      },
+      {
+        "condition": "job_salary_max < candidate_minimum_salary * 0.8",
+        "score": 0
+      }
+    ]
+  },
+
+  "experience_matching": {
+    "rules": [
+      {
+        "condition": "candidate_experience >= job_experience_min AND (job_experience_max IS NULL OR candidate_experience <= job_experience_max)",
+        "score": 100
+      },
+      {
+        "condition": "candidate_experience >= job_experience_min",
+        "score": 85
+      },
+      {
+        "condition": "candidate_experience < job_experience_min",
+        "score": 50
+      }
+    ]
+  },
+
+  "deal_breaker_logic": {
+    "enabled": true,
+    "priority": "highest",
+    "action": "exclude_job_if_triggered",
+    "examples": [
+      {
+        "candidate": "No night shifts",
+        "job": "Night shift required",
+        "action": "exclude"
+      },
+      {
+        "candidate": "No relocation",
+        "job": "Relocation required",
+        "action": "exclude"
+      },
+      {
+        "candidate": "Minimum salary 600000 INR",
+        "job": "Maximum salary 450000 INR",
+        "action": "exclude"
+      },
+      {
+        "candidate": "Remote only",
+        "job": "On-site only",
+        "action": "exclude"
+      }
+    ]
+  },
+
+  "match_result": {
+    "job_id": "",
+    "job_title": "",
+    "company": "",
+    "match_percentage": 0,
+
+    "match_breakdown": {
+      "role": 0,
+      "skills": 0,
+      "experience": 0,
+      "work_mode": 0,
+      "employment_type": 0,
+      "location": 0,
+      "salary": 0,
+      "industry": 0,
+      "company_size": 0,
+      "career_priorities": 0,
+      "work_authorization": 0,
+      "timezone": 0,
+      "availability": 0
+    },
+
+    "matched_skills": [],
+    "missing_required_skills": [],
+    "matched_preferences": [],
+    "potential_gaps": [],
+
+    "deal_breaker_detected": false,
+    "deal_breaker_reason": "",
+
+    "explanation": {
+      "summary": "",
+      "why_it_matches": [],
+      "what_is_missing": []
+    }
+  },
+
+  "ranking": {
+    "scope": "ALL_ELIGIBLE_JOBS",
+    "process_all_jobs": true,
+    "include_all_matching_jobs": true,
+    "exclude_only_hard_filter_failures": true,
+
+    "sort_by": "match_percentage",
+    "order": "descending",
+
+    "sort_priority": [
+      "match_percentage",
+      "role_match",
+      "skill_match",
+      "experience_match"
+    ],
+
+    "round_match_percentage": 2,
+
+    "do_not_limit_results": true,
+    "show_top": null,
+
+    "output": {
+      "total_jobs_processed": "ALL",
+      "total_jobs_eligible": "COUNT_OF_JOBS_PASSING_HARD_FILTERS",
+      "total_jobs_excluded": "COUNT_OF_JOBS_FAILING_HARD_FILTERS",
+      "all_eligible_jobs_ranked": true,
+      "ranking_order": "100% to 0%"
+    }
+  }
+}
