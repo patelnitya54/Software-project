@@ -1,0 +1,582 @@
+[
+  {
+    "job_id": "awwwards-storetasker-uiux",
+    "job_title": "Senior UI/UX Designer, Ecommerce",
+    "company": "Storetasker",
+    "company_logo_text": "st",
+    "company_logo_bg": "#10B981",
+    "employment_type": "Full-time",
+    "industry": "Design & Ecommerce",
+    "location": [
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 110000,
+    "salary_max": 145000,
+    "currency": "USD",
+    "salary_display": "$110K - $145K",
+    "required_skills": [
+      "UI/UX Designer",
+      "Figma",
+      "Ecommerce",
+      "Shopify",
+      "Design Systems",
+      "Prototyping"
+    ],
+    "preferred_skills": [
+      "User Research",
+      "Wireframing",
+      "A/B Testing",
+      "Mobile UI"
+    ],
+    "experience_min": 5,
+    "experience_max": 10,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "13 d ago",
+    "post_age_days": 13,
+    "application_url": "https://storetasker.com/become-an-expert",
+    "source": "awwwards",
+    "description": "About Storetasker:\nStoretasker is the leading talent platform for Consumer Brands - changing how modern brands hire exceptional freelancers and agencies across development, design, marketing, and creative production. The platform has supported thousands of fast-growing Shopify brands, delivering high-impact storefront designs and seamless commerce experiences.\n\nThe Opportunity:\nWe are looking for a visionary Senior UI/UX Designer to lead digital storefront and commerce experiences for top direct-to-consumer lifestyle, luxury, and technology brands. You will collaborate closely with creative directors and frontend engineers to transform brand stories into intuitive, high-converting digital shopping journeys.\n\nKey Responsibilities:\n• Lead end-to-end UI/UX design from discovery and conceptual wireframes to high-fidelity design systems in Figma.\n• Design responsive, mobile-first e-commerce layouts, product landing pages, cart flows, and interactive components.\n• Build and maintain modular, component-driven design systems tailored for Shopify Liquid and modern headless commerce stacks.\n• Conduct user research, customer journey mapping, and conversion-rate optimization (CRO) audits.\n• Work in tandem with creative developers to ensure design fidelity and micro-interaction perfection during build.\n\nQualifications:\n• 5+ years of dedicated UI/UX design experience, with a proven portfolio highlighting sophisticated e-commerce or brand digital experiences.\n• Mastery of Figma, auto-layout, interactive components, and tokenized design systems.\n• Deep understanding of consumer psychology, typography, grid layouts, and modern web aesthetics.\n• Experience collaborating with engineering teams and understanding front-end capabilities (HTML, CSS, modern layout techniques)."
+  },
+  {
+    "job_id": "awwwards-roboto-studio-brand",
+    "job_title": "Digital Brand Designer",
+    "company": "Roboto Studio",
+    "company_logo_text": "ro",
+    "company_logo_bg": "#F97316",
+    "employment_type": "Full-time",
+    "industry": "Design Agency",
+    "location": [
+      "Remote",
+      "Central US time zone"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 40000,
+    "salary_max": 52000,
+    "currency": "USD",
+    "salary_display": "$3,000 - $4,000 / month ($48K/yr)",
+    "required_skills": [
+      "Digital Brand Designer",
+      "Brand Identity",
+      "Figma",
+      "Web Design",
+      "Typography",
+      "Art Direction"
+    ],
+    "preferred_skills": [
+      "Illustration",
+      "Motion Design",
+      "3D Art",
+      "Editorial Design"
+    ],
+    "experience_min": 3,
+    "experience_max": 7,
+    "company_size": "Startup: 1-50 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "20 d ago",
+    "post_age_days": 20,
+    "application_url": "https://robotostudio.com/",
+    "source": "awwwards",
+    "description": "About Roboto Studio:\nRoboto Studio is a boutique digital design studio working with premier US clients, primarily high-growth tech startups and venture-backed SaaS companies. We craft distinct brand identities, interactive marketing websites, and digital experiences that win industry recognition.\n\nThe Role:\nWe’re looking for an experienced Digital Brand Designer who lives and breathes typography, color theory, and digital craftsmanship. You will shape the core identity and digital design language for boundary-pushing technology products and creative studios.\n\nWhat You'll Do:\n• Craft comprehensive visual identities, brand guidelines, logo systems, and visual assets for high-growth tech startups.\n• Design modern, high-impact marketing websites and interactive digital touchpoints in Figma.\n• Experiment with expressive typography, editorial grid systems, and custom iconography.\n• Partner directly with founding teams and creative directors to align brand strategy with visual execution.\n\nWho You Are:\n• 3+ years of experience in brand design, visual identity, and modern web design at an agency, studio, or fast-paced startup.\n• An outstanding portfolio showcasing award-winning typography, distinct visual systems, and clean web layouts.\n• Proficient in Figma, Adobe Creative Suite, and prototyping tools.\n• Strong communication skills and ability to present creative rationale with clarity."
+  },
+  {
+    "job_id": "awwwards-onsight-ecommerce",
+    "job_title": "eCommerce Web Designer",
+    "company": "on/Sight",
+    "company_logo_text": "os",
+    "company_logo_bg": "#2563EB",
+    "employment_type": "Full-time",
+    "industry": "E-Commerce",
+    "location": [
+      "Denver, CO",
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 85000,
+    "salary_max": 115000,
+    "currency": "USD",
+    "salary_display": "$85K - $115K",
+    "required_skills": [
+      "Web Designer",
+      "Shopify",
+      "Figma",
+      "Responsive Web Design",
+      "UI/UX",
+      "HTML",
+      "CSS"
+    ],
+    "preferred_skills": [
+      "Liquid",
+      "CRO Audits",
+      "Framer",
+      "Motion Graphics"
+    ],
+    "experience_min": 3,
+    "experience_max": 8,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "1 month ago",
+    "post_age_days": 30,
+    "application_url": "https://on-sight.co/",
+    "source": "awwwards",
+    "description": "About on/Sight:\non/Sight is a full-service eCommerce web design and development agency based in Colorado. We craft award-worthy solutions for direct-to-consumer brands on the Shopify platform. Our clients range from emerging cult favorites to industry-leading global lifestyle brands.\n\nThe Role:\nWe are seeking an innovative eCommerce Web Designer who understands the sweet spot where stunning aesthetics meet high-volume conversion. You will spearhead digital redesigns, bespoke landing page templates, and seamless shopping cart experiences.\n\nKey Responsibilities:\n• Conceive and execute creative web designs for luxury, wellness, apparel, and lifestyle consumer brands.\n• Translate brand guidelines into polished, responsive desktop and mobile web experiences in Figma.\n• Partner closely with frontend developers to bring complex animations and custom Shopify sections to life.\n• Optimize site architecture, user flows, and product presentation to maximize engagement and sales.\n\nWhat We Expect:\n• 3+ years of web design experience with a strong emphasis on modern e-commerce storefronts.\n• Deep familiarity with Shopify best practices, commerce UX paradigms, and responsive design frameworks.\n• Mastery of Figma, design systems, and rapid interactive prototyping."
+  },
+  {
+    "job_id": "awwwards-anchour-senior-ui",
+    "job_title": "Senior UI Designer",
+    "company": "Anchour",
+    "company_logo_text": "an",
+    "company_logo_bg": "#111827",
+    "employment_type": "Full-time",
+    "industry": "Branding & Digital",
+    "location": [
+      "New Gloucester, ME",
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 95000,
+    "salary_max": 130000,
+    "currency": "USD",
+    "salary_display": "$95K - $130K",
+    "required_skills": [
+      "Senior UI Designer",
+      "UI/UX Designer",
+      "Figma",
+      "Design Systems",
+      "Web Design",
+      "Interaction Design"
+    ],
+    "preferred_skills": [
+      "Micro-interactions",
+      "Creative Direction",
+      "Accessibility (WCAG)",
+      "Prototyping"
+    ],
+    "experience_min": 5,
+    "experience_max": 10,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "1 month ago",
+    "post_age_days": 30,
+    "application_url": "https://www.anchour.com",
+    "source": "awwwards",
+    "description": "Overview from Anchour:\nWe're hiring a Senior UI Designer to own how the digital experiences we build look and feel. You'll lead visual and user interface design across custom websites, eCommerce platforms, and digital products, from first concept through launch. You'll build the design systems, component libraries, and interactive nuances that set our clients apart.\n\nResponsibilities:\n• Drive creative vision and visual hierarchy across diverse web and digital product client projects.\n• Establish scalable design systems, typography standards, and color palettes that ensure visual consistency.\n• Create high-fidelity prototypes demonstrating complex transitions, micro-interactions, and responsive layouts.\n• Guide junior designers and mentor team members in visual design craft.\n• Champion accessibility, performance, and responsive precision across all digital deliverables.\n\nQualifications:\n• 5+ years of dedicated user interface and digital design experience in an agency or product environment.\n• Extensive portfolio demonstrating mastery of typography, layout balance, modern UI conventions, and interaction details.\n• Expert in Figma, component architecture, and modern prototyping workflows."
+  },
+  {
+    "job_id": "awwwards-nyt-design-developer",
+    "job_title": "Design Developer, Opinion",
+    "company": "The New York Times",
+    "company_logo_text": "ny",
+    "company_logo_bg": "#000000",
+    "employment_type": "Full-time",
+    "industry": "Media & Editorial",
+    "location": [
+      "New York, NY",
+      "United States",
+      "Hybrid"
+    ],
+    "work_mode": "Hybrid",
+    "salary_min": 125000,
+    "salary_max": 155000,
+    "currency": "USD",
+    "salary_display": "$125K - $155K",
+    "required_skills": [
+      "Creative Developer",
+      "Frontend Software Engineer",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "React",
+      "D3.js"
+    ],
+    "preferred_skills": [
+      "WebGL",
+      "Data Visualization",
+      "Three.js",
+      "Canvas API",
+      "Svelte"
+    ],
+    "experience_min": 4,
+    "experience_max": 9,
+    "company_size": "Enterprise: 1000+ employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "1 month ago",
+    "post_age_days": 30,
+    "application_url": "https://www.nytco.com/careers",
+    "source": "awwwards",
+    "description": "About the Role:\nThe New York Times Opinion desk is looking for a Digital Design Developer to join our award-winning interactive design team. In this role, you will create digital storytelling experiences, data-driven journalism graphics, and immersive web layouts for our global audience of over 100 million readers.\n\nAs an expert frontend design developer, you sit at the intersection of design, code, and journalism, turning complex ideas into compelling visual narratives.\n\nWhat You Will Do:\n• Design and engineer bespoke interactive articles, audio/visual features, and data visualizations.\n• Write clean, high-performance, accessible JavaScript, HTML, and CSS/SCSS under tight editorial deadlines.\n• Collaborate with art directors, editors, writers, and graphics editors to conceptualize interactive presentations.\n• Optimize digital stories for speed, responsiveness, and cross-platform fidelity across desktop, tablet, and mobile browsers.\n\nDesired Experience:\n• 4+ years of experience blending digital design and frontend web engineering.\n• Deep proficiency with modern JavaScript (ES6+), React or Svelte, and data visualization tools (D3.js, Canvas).\n• Passion for typography, visual hierarchy, narrative pacing, and interactive journalism."
+  },
+  {
+    "job_id": "awwwards-feelslike-lead-digital",
+    "job_title": "Lead Digital Designer",
+    "company": "Feels Like",
+    "company_logo_text": "fl",
+    "company_logo_bg": "#EC4899",
+    "employment_type": "Full-time",
+    "industry": "Creative Studio",
+    "location": [
+      "Los Angeles, CA",
+      "United States"
+    ],
+    "work_mode": "Onsite",
+    "salary_min": 130000,
+    "salary_max": 165000,
+    "currency": "USD",
+    "salary_display": "$130K - $165K",
+    "required_skills": [
+      "Product Designer",
+      "Art Direction",
+      "Figma",
+      "Motion Graphics",
+      "3D Web",
+      "Interactive UI"
+    ],
+    "preferred_skills": [
+      "Three.js",
+      "Cinema 4D",
+      "Brand Strategy",
+      "Creative Direction"
+    ],
+    "experience_min": 6,
+    "experience_max": 12,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "1 month ago",
+    "post_age_days": 30,
+    "application_url": "https://www.feelslike.studio/",
+    "source": "awwwards",
+    "description": "About Feels Like:\nFeels Like is an award-winning digital design and innovation studio born out of B-Reel in Los Angeles. We work with world-renowned culture brands, luxury fashion houses, and visionary tech startups to push the boundaries of what web interfaces can be, how they behave, and how they make people feel.\n\nThe Role:\nWe are seeking an exceptional Lead Digital Designer to spearhead our marquee interactive projects. You will define the art direction, visual language, spatial 3D elements, and micro-interactions for groundbreaking digital experiences.\n\nKey Duties:\n• Lead concepting, art direction, and UI design for cutting-edge websites, 3D spatial web apps, and brand experiences.\n• Direct multi-disciplinary teams of 3D artists, creative developers, and motion designers.\n• Pitch innovative interactive concepts directly to client executives and stakeholders.\n• Set the highest aesthetic standard for typography, layout, sound design, and emotional resonance.\n\nRequirements:\n• 6+ years of visual and digital design leadership at an internationally recognized creative agency or studio.\n• Proven track record of Awwwards Site of the Day / Year, FWA, or Cannes Lions caliber digital work.\n• Exceptional mastery of Figma, 3D spatial concepts, and motion design."
+  },
+  {
+    "job_id": "awwwards-pushrefresh-visual",
+    "job_title": "Visual Designer (Contract to Hire)",
+    "company": "Push Refresh",
+    "company_logo_text": "pr",
+    "company_logo_bg": "#8B5CF6",
+    "employment_type": "Contract",
+    "industry": "Design & Development",
+    "location": [
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 75000,
+    "salary_max": 95000,
+    "currency": "USD",
+    "salary_display": "$75 - $95 / hour",
+    "required_skills": [
+      "Visual Designer",
+      "Web Designer",
+      "Figma",
+      "Design Systems",
+      "Wireframing"
+    ],
+    "preferred_skills": [
+      "Illustration",
+      "Responsive Web Design",
+      "HTML/CSS Awareness"
+    ],
+    "experience_min": 3,
+    "experience_max": 7,
+    "company_size": "Startup: 1-50 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "1 month ago",
+    "post_age_days": 30,
+    "application_url": "https://pushrefresh.com/",
+    "source": "awwwards",
+    "description": "About Push Refresh:\nPush Refresh is a modern design and engineering studio. We design and build websites, web apps, and digital platforms for a range of clients from Silicon Valley tech companies to direct-to-consumer innovators.\n\nWhat We're Looking For:\nWe are looking for a Visual Designer who can take a rough idea, a wireframe, or a conversation and turn it into something exceptional. You should have a sharp eye for layout, typography, whitespace, and digital texture.\n\nScope of Work:\n• Design modern responsive websites, landing pages, and web app interfaces in Figma.\n• Develop clean, reusable design components and modular style guides.\n• Iterate rapidly based on user feedback and creative director reviews.\n• Hand off pixel-perfect specifications and interactive prototypes to developers."
+  },
+  {
+    "job_id": "awwwards-limesharp-junior-uiux",
+    "job_title": "Junior UI/UX Designer",
+    "company": "Limesharp",
+    "company_logo_text": "ls",
+    "company_logo_bg": "#06B6D4",
+    "employment_type": "Full-time",
+    "industry": "Digital Commerce",
+    "location": [
+      "London, UK",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 42000,
+    "salary_max": 55000,
+    "currency": "USD",
+    "salary_display": "£32,000 - £42,000 (~$50K)",
+    "required_skills": [
+      "UI/UX Designer",
+      "Figma",
+      "Ecommerce",
+      "Responsive Design",
+      "Prototyping"
+    ],
+    "preferred_skills": [
+      "Shopify Knowledge",
+      "User Testing",
+      "Visual Design"
+    ],
+    "experience_min": 1,
+    "experience_max": 4,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "Europe",
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "29 d ago",
+    "post_age_days": 29,
+    "application_url": "https://limesharp.net/",
+    "source": "awwwards",
+    "description": "Overview:\nLimesharp is an award-winning, creatively led digital commerce agency creating bespoke solutions for luxury fashion, beauty, and lifestyle brands. We are a global team of designers, developers, strategy experts, and project managers.\n\nThe Opportunity:\nWe are looking for an ambitious Junior UI/UX Designer eager to grow rapidly under the mentorship of our Design Director. You will work on live client websites, creating user flows, mobile layouts, and polished e-commerce components.\n\nKey Responsibilities:\n• Assist in creating wireframes, interactive prototypes, and high-fidelity UI screens in Figma.\n• Audit client storefronts for usability gaps and suggest conversion-boosting design improvements.\n• Support senior designers in creating and documenting design system components.\n• Prepare design assets and inspect development builds to ensure design fidelity.\n\nRequirements:\n• 1-3 years of UI/UX design experience or formal education with an impressive portfolio of web design projects.\n• Strong command of Figma, responsive grids, and typography fundamentals.\n• Curiosity, passion for e-commerce, and excitement to learn from seasoned digital designers."
+  },
+  {
+    "job_id": "awwwards-basic-creative-frontend",
+    "job_title": "Senior Creative Frontend Developer",
+    "company": "Basic.Agency",
+    "company_logo_text": "ba",
+    "company_logo_bg": "#000000",
+    "employment_type": "Full-time",
+    "industry": "Digital Agency",
+    "location": [
+      "San Diego, CA",
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 130000,
+    "salary_max": 160000,
+    "currency": "USD",
+    "salary_display": "$130K - $160K",
+    "required_skills": [
+      "Creative Developer",
+      "Frontend Software Engineer",
+      "WebGL",
+      "Three.js",
+      "React",
+      "GSAP",
+      "TypeScript"
+    ],
+    "preferred_skills": [
+      "Shaders / GLSL",
+      "Tailwind CSS",
+      "Next.js",
+      "Canvas 2D"
+    ],
+    "experience_min": 5,
+    "experience_max": 10,
+    "company_size": "Medium: 201-500 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "5 d ago",
+    "post_age_days": 5,
+    "application_url": "https://basicagency.com/careers",
+    "source": "awwwards",
+    "description": "About Basic.Agency:\nBASIC® is a global brand and digital experience agency that bridges strategy, brand design, and technology to build iconic digital platforms. We are frequent winners of Awwwards Agency of the Year, FWA of the Year, and Webby Awards.\n\nThe Role:\nWe are looking for a Senior Creative Frontend Developer who treats code as a creative medium. You will engineer immersive 3D interactions, smooth page transitions, and bespoke interactive websites that redefine modern web design.\n\nWhat You'll Do:\n• Build visually stunning web experiences using React, TypeScript, Three.js, WebGL, and GSAP.\n• Partner closely with world-class art directors and 3D designers to implement complex micro-animations and physics-based interactions.\n• Optimize 3D models, textures, and canvas render loops to maintain 60 FPS across both desktop and mobile devices.\n• Architect scalable, accessible, and clean frontend codebases for premier consumer and tech brands.\n\nRequirements:\n• 5+ years of creative frontend development with a standout portfolio of award-winning digital work.\n• Deep expertise in WebGL, Three.js, GSAP/ScrollTrigger, and modern CSS/shader math.\n• Obsession with performance profiling, smooth frame rates, and visual polish."
+  },
+  {
+    "job_id": "awwwards-resn-creative-technologist",
+    "job_title": "Creative Technologist & Interaction Designer",
+    "company": "Resn",
+    "company_logo_text": "rn",
+    "company_logo_bg": "#7C3AED",
+    "employment_type": "Full-time",
+    "industry": "Interactive & 3D",
+    "location": [
+      "Amsterdam, Netherlands",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 70000,
+    "salary_max": 95000,
+    "currency": "EUR",
+    "salary_display": "€65,000 - €85,000 (~$80K-$100K)",
+    "required_skills": [
+      "Creative Developer",
+      "GLSL",
+      "Shaders",
+      "Figma",
+      "Interactive Experiences",
+      "Next.js",
+      "WebGL"
+    ],
+    "preferred_skills": [
+      "Creative Coding",
+      "Generative AI",
+      "TouchDesigner",
+      "Sound Design"
+    ],
+    "experience_min": 4,
+    "experience_max": 9,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "Europe",
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "7 d ago",
+    "post_age_days": 7,
+    "application_url": "https://resn.co.nz/careers",
+    "source": "awwwards",
+    "description": "About Resn:\nResn is an independent digital creative agency known worldwide for mind-bending interactive experiences, surreal 3D websites, and pioneering interactive art. We have won over 500 industry awards, including numerous Awwwards Agency of the Year titles.\n\nThe Role:\nWe are searching for a Creative Technologist & Interaction Designer who thrives on the bleeding edge of interactive web art. You will build mind-bending WebGL shaders, generative canvas algorithms, and interactive narrative worlds.\n\nKey Responsibilities:\n• Prototype and code experimental web interactions, audio-reactive visuals, and GLSL shaders.\n• Collaborate with visionary art directors to test emerging web technologies and interaction models.\n• Write robust production code that scales to millions of simultaneous users during high-profile global brand launches.\n\nWho You Are:\n• A self-directed creative coder with deep passion for interactive art, generative visuals, and game-like web experiences.\n• Proficient in WebGL/Three.js, GLSL shaders, canvas math, and modern JavaScript/TypeScript.\n• A portfolio demonstrating original thinking, experimental UI, and delightful micro-interactions."
+  },
+  {
+    "job_id": "awwwards-fantasy-lead-product",
+    "job_title": "Lead Product Designer (Web Experience)",
+    "company": "Fantasy",
+    "company_logo_text": "fy",
+    "company_logo_bg": "#DC2626",
+    "employment_type": "Full-time",
+    "industry": "Design & Innovation",
+    "location": [
+      "San Francisco, CA",
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 150000,
+    "salary_max": 190000,
+    "currency": "USD",
+    "salary_display": "$150K - $190K",
+    "required_skills": [
+      "Product Designer",
+      "UI/UX Designer",
+      "Figma",
+      "Design Systems",
+      "Prototyping",
+      "Design Strategy"
+    ],
+    "preferred_skills": [
+      "Future Vision UI",
+      "AI Interface Design",
+      "Design Leadership",
+      "Executive Presentations"
+    ],
+    "experience_min": 7,
+    "experience_max": 14,
+    "company_size": "Medium: 201-500 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "3 d ago",
+    "post_age_days": 3,
+    "application_url": "https://fantasy.co/careers",
+    "source": "awwwards",
+    "description": "About Fantasy:\nFantasy is a globally acclaimed human-centered product and interface innovation firm. Over the past two decades, we have partnered with Tesla, Netflix, Apple, Spotify, Google, and Porsche to define category-leading operating systems, web experiences, and futuristic digital products.\n\nThe Role:\nWe are looking for a visionary Lead Product Designer to guide high-stakes digital experience engagements. You will define the UX architecture, visual elegance, and revolutionary interaction paradigms for the next decade of digital products.\n\nResponsibilities:\n• Architect next-generation web operating systems, enterprise platforms, and consumer digital experiences.\n• Lead client design workshops and present strategic design visions to Fortune 500 C-suite executives.\n• Direct talented teams of product designers, motion artists, and creative strategists.\n• Establish scalable, tokenized multi-brand design systems that support global product ecosystems.\n\nWhat We Seek:\n• 7+ years of product design leadership with an internationally recognized portfolio of digital products.\n• Exceptional visual craft, conceptual clarity, and ability to think beyond current interface limitations.\n• Mastery of Figma, high-fidelity interactive prototyping, and system design thinking."
+  },
+  {
+    "job_id": "awwwards-dogstudio-art-director",
+    "job_title": "Senior Art Director & Web Designer",
+    "company": "Dogstudio",
+    "company_logo_text": "ds",
+    "company_logo_bg": "#EA580C",
+    "employment_type": "Full-time",
+    "industry": "Interactive Design",
+    "location": [
+      "Chicago, IL",
+      "United States",
+      "Remote"
+    ],
+    "work_mode": "Remote",
+    "salary_min": 120000,
+    "salary_max": 155000,
+    "currency": "USD",
+    "salary_display": "$120K - $155K",
+    "required_skills": [
+      "Art Director",
+      "Web Designer",
+      "Figma",
+      "Motion Graphics",
+      "3D Web",
+      "Brand Storytelling"
+    ],
+    "preferred_skills": [
+      "Cinema 4D",
+      "Blender",
+      "Creative Direction",
+      "Creative Coding Awareness"
+    ],
+    "experience_min": 5,
+    "experience_max": 11,
+    "company_size": "Small: 51-200 employees",
+    "work_authorization": "Valid work authorization",
+    "sponsorship_available": true,
+    "timezone": [
+      "North America",
+      "Any timezone"
+    ],
+    "relocation_required": false,
+    "night_shift": false,
+    "posted_date": "6 d ago",
+    "post_age_days": 6,
+    "application_url": "https://dogstudio.co/careers",
+    "source": "awwwards",
+    "description": "About Dogstudio:\nDogstudio is a multidisciplinary creative agency operating at the intersection of art, technology, and entertainment with offices in Chicago and Belgium. We create emotive digital worlds, interactive branding, and unforgettable web platforms for brands like Microsoft, Museum of Science and Industry, and Tomorrowland.\n\nThe Role:\nWe are hiring a Senior Art Director & Web Designer to conceptualize and craft visually breathtaking digital experiences. You will lead the artistic and interactive vision, from initial storyboard through design systems and digital production.\n\nWhat You'll Do:\n• Formulate bold artistic concepts, mood boards, and aesthetic direction for flagship web projects.\n• Design responsive, experiential websites, 3D interactive canvases, and digital installations.\n• Guide motion designers, 3D artists, and creative developers to ensure the creative vision is executed flawlessly.\n• Champion progressive web design trends, daring typography, and tactile digital interactions.\n\nQualifications:\n• 5+ years in art direction and digital web design within a renowned agency or creative studio.\n• Proven track record of award-winning digital work (Awwwards, FWA, D&AD).\n• Strong portfolio demonstrating mastery of typography, 3D integration, and emotional digital storytelling."
+  }
+]
