@@ -1,0 +1,23 @@
+{
+  "name": "jobpath",
+  "version": "2.0.0",
+  "description": "JobPath — Candidate Matching & Direct ATS Job Board",
+  "scripts": {
+    "dev": "npm run dev:frontend",
+    "dev:frontend": "npx -y serve frontend -p 3000",
+    "dev:backend": "cd backend && .venv\\Scripts\\python.exe -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "scrape": "cd backend && .venv\\Scripts\\python.exe -m scripts.scrape",
+    "scrape:greenhouse": "cd backend && .venv\\Scripts\\python.exe -m scripts.scrape --source greenhouse",
+    "scrape:ashby": "cd backend && .venv\\Scripts\\python.exe -m scripts.scrape --source ashby",
+    "test:backend": "cd backend && .venv\\Scripts\\python.exe -c \"import sys; sys.path.insert(0, '.'); from app.services.data_loader import job_store; job_store.load(); print('Backend verified! Jobs loaded:', job_store.total)\"",
+    "test:frontend": "node --check frontend/js/api.js && node --check frontend/js/utils.js && node --check frontend/js/state.js && node --check frontend/js/jobs-board.js && node --check frontend/js/job-details.js && node --check frontend/js/onboarding.js && node --check frontend/js/analytics.js && echo All frontend scripts valid!"
+  },
+  "keywords": [
+    "jobpath",
+    "ats-scraper",
+    "job-matching",
+    "fastapi",
+    "frontend"
+  ],
+  "license": "ISC"
+}

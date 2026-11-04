@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workin' | Jobs Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/jobs-board.css">
+</head>
+
+</head>
+
+<body>
+
+    <!-- Toast Notification -->
+    <div id="toastNotification" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1a1a18; color: #ffffff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; z-index: 100000; display: none; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: opacity 0.3s ease; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo" style="cursor: pointer;" onclick="window.location.href='index.html'" title="JobPath Home">
+            <img src="assets/images/sidebar-logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+
+        <div class="nav-icon" id="nav-home" title="Home" onclick="switchView('home')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+        </div>
+        <div class="nav-icon" id="nav-grid" title="Grid" onclick="switchView('grid')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+            </svg>
+        </div>
+        <div class="nav-icon active" id="nav-discover" title="Discover" onclick="switchView('discover')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+            </svg>
+        </div>
+        <div class="nav-icon" id="nav-messages" title="Messages" onclick="switchView('messages')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </div>
+        <div class="nav-icon has-dot" id="nav-docs" title="Documents" onclick="switchView('docs')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+            </svg>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="nav-icon" id="nav-bell" title="Notifications" onclick="showToast('No new notifications.')">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+        </div>
+        <div class="avatar" id="sidebarAvatar">BA</div>
+    </div>
+
+    <!-- Dashboard Panel (Home) -->
+    <div id="dashboard-panel">
+        <div class="dash-frame">
+            <!-- Header -->
+            <div class="dash-header-row">
+                <div>
+                    <div class="dash-greeting" id="dashGreeting">Afternoon, Bhavya</div>
+                    <div class="dash-greeting-sub">Nothing's gone out yet today — once you start sending, this is where
+                        you'll keep an eye on things.</div>
+                </div>
+                <div class="dash-status-stack">
+                    <span class="dash-status-line"><span class="dash-status-dot on"></span>All systems normal</span>
+                    <span class="dash-status-line"><span class="dash-status-dot synced"></span>Gmail synced 2m
+                        ago</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dash-actions-strip">
+                <div class="dash-action-pill">
+                    <div class="dash-action-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg></div>
+                    <div>
+                        <div class="dash-action-text-title">Write an outreach email</div>
+                        <div class="dash-action-text-sub">Pick a recruiter, let's go</div>
+                    </div>
+                </div>
+                <div class="dash-action-pill">
+                    <div class="dash-action-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg></div>
+                    <div>
+                        <div class="dash-action-text-title">Upload a list</div>
+                        <div class="dash-action-text-sub">CSV of contacts</div>
+                    </div>
+                </div>
+                <div class="dash-action-pill">
+                    <div class="dash-action-ico"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg></div>
+                    <div>
+                        <div class="dash-action-text-title">Check for replies</div>
+                        <div class="dash-action-text-sub">We'll scan your inbox</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat Strip -->
+            <div class="dash-stat-strip">
+                <div class="dash-stat-cell">
+                    <span class="dash-stat-cell-label">Sent</span>
+                    <span class="dash-stat-cell-value">0</span>
+                    <span class="dash-stat-cell-note">nothing yet</span>
+                </div>
+                <div class="dash-stat-cell">
+                    <span class="dash-stat-cell-label">Opened</span>
+                    <span class="dash-stat-cell-value">—</span>
+                    <span class="dash-stat-cell-note">need sends first</span>
+                </div>
+                <div class="dash-stat-cell">
+                    <span class="dash-stat-cell-label">Replied</span>
+                    <span class="dash-stat-cell-value">0</span>
+                    <span class="dash-stat-cell-note">nothing yet</span>
+                </div>
+                <div class="dash-stat-cell">
+                    <span class="dash-stat-cell-label">Interviews</span>
+                    <span class="dash-stat-cell-value">0</span>
+                    <span class="dash-stat-cell-note">none booked</span>
+                </div>
+                <div class="dash-stat-cell">
+                    <span class="dash-stat-cell-label">AI credits left</span>
+                    <span class="dash-stat-cell-value">50</span>
+                    <span class="dash-stat-cell-note up">plenty for now</span>
+                </div>
+            </div>
+
+            <!-- Funnel -->
+            <div class="dash-card">
+                <div class="dash-card-title">Where things stand</div>
+                <div class="dash-card-note">From the first email to a real interview — here's the path so far.</div>
+                <div class="dash-funnel-row">
+                    <span class="dash-funnel-label">Sent</span>
+                    <div class="dash-funnel-track">
+                        <div class="dash-funnel-fill" style="width:100%">0 so far</div>
+                    </div>
+                    <span class="dash-funnel-num">—</span>
+                </div>
+                <div class="dash-funnel-row">
+                    <span class="dash-funnel-label">Opened</span>
+                    <div class="dash-funnel-track">
+                        <div class="dash-funnel-fill cyan" style="width:4%">0</div>
+                    </div>
+                    <span class="dash-funnel-num">—</span>
+                </div>
+                <div class="dash-funnel-row">
+                    <span class="dash-funnel-label">Replied</span>
+                    <div class="dash-funnel-track">
+                        <div class="dash-funnel-fill cyan" style="width:4%">0</div>
+                    </div>
+                    <span class="dash-funnel-num">—</span>
+                </div>
+                <div class="dash-funnel-row">
+                    <span class="dash-funnel-label">Interview</span>
+                    <div class="dash-funnel-track">
+                        <div class="dash-funnel-fill cyan" style="width:4%">0</div>
+                    </div>
+                    <span class="dash-funnel-num">—</span>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="dash-card">
+                <div class="dash-chart-top">
+                    <div>
+                        <div class="dash-card-title">This week</div>
+                        <div class="dash-card-note" style="margin-bottom:0">A quick look at daily volume, last 7 days
+                        </div>
+                    </div>
+                    <div class="dash-chart-actions">
+                        <button class="dash-export-link">Export →</button>
+                    </div>
+                </div>
+                <div class="dash-chart-area">
+                    <div class="dash-chart-baseline"></div>
+                    <div class="dash-chart-msg">Nothing sent this week yet — once you do, you'll see it here</div>
+                </div>
+                <div class="dash-chart-days">
+                    <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span><span>Tue</span>
+                </div>
+            </div>
+
+            <!-- Activity -->
+            <div class="dash-activity-card">
+                <div class="dash-activity-top">
+                    <div class="dash-card-title">What's happening</div>
+                    <span class="dash-status-line"><span class="dash-status-dot on"></span>watching live</span>
+                </div>
+                <div class="dash-activity-empty">
+                    <div class="dash-activity-empty-line">Quiet for now.</div>
+                    <div class="dash-activity-empty-sub">Send your first email and replies, opens, and interview
+                        requests will start showing up right here.</div>
+                    <span class="dash-send-link" onclick="switchView('discover')">Send your first email →</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Job Board) -->
+    <div class="main-content" id="job-board-panel">
+
+        <div class="search-container">
+            <div class="search-bar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" id="jobSearchInput" placeholder="Search jobs or companies">
+            </div>
+        </div>
+
+        <div class="filters-row">
+            <div class="filters-left">
+                <label
+                    style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13px; font-weight:500;"><input
+                        type="checkbox" id="selectAll" class="card-checkbox" style="margin:0;"
+                        onclick="toggleSelectAll()"> Select All</label>
+                <button class="btn btn-dark" id="bulkSendEmailBtn" onclick="handleBulkSendEmail()" style="height: 32px; padding: 0 16px; margin-left: 8px;">Send
+                    Email</button>
+                <button class="filter-btn" onclick="openModal('match')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                    Match
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div class="source-pills" style="display:flex; align-items:center; gap:6px; margin-left:8px; overflow-x:auto;">
+                    <button class="source-pill active" id="pill-all" onclick="filterBySource('all', this)">All</button>
+                    <button class="source-pill" id="pill-greenhouse" onclick="filterBySource('greenhouse', this)">Greenhouse</button>
+                    <button class="source-pill" id="pill-ashby" onclick="filterBySource('ashby', this)">Ashby</button>
+                    <button class="source-pill" id="pill-awwwards" onclick="filterBySource('awwwards', this)">Awwwards</button>
+                </div>
+                <!-- <button class="filter-btn" onclick="openModal('location')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Location
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <button class="filter-btn" onclick="openModal('seniority')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10" />
+                        <line x1="12" y1="20" x2="12" y2="4" />
+                        <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                    Seniority
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <button class="filter-btn" onclick="openModal('salary')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="6" width="20" height="12" rx="2" />
+                        <circle cx="12" cy="12" r="2" />
+                        <path d="M6 12h.01M18 12h.01" />
+                    </svg>
+                    Salary
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <button class="filter-btn" onclick="openModal('industry')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                    Industry
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button> -->
+                <button class="filter-btn" onclick="openModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="21" x2="4" y2="14" />
+                        <line x1="4" y1="10" x2="4" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="12" />
+                        <line x1="12" y1="8" x2="12" y2="3" />
+                        <line x1="20" y1="21" x2="20" y2="16" />
+                        <line x1="20" y1="12" x2="20" y2="3" />
+                        <line x1="1" y1="14" x2="7" y2="14" />
+                        <line x1="9" y1="8" x2="15" y2="8" />
+                        <line x1="17" y1="16" x2="23" y2="16" />
+                    </svg>
+                    All Filters
+                </button>
+            </div>
+            <div class="sort-dropdown-container" style="position: relative;">
+                <button class="filter-btn most-recent" onclick="toggleSortDropdown()" id="sort-btn">
+                    <span>Most Recent</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sort-arrow">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div class="sort-dropdown" id="sort-dropdown" style="display: none;">
+                    <div class="sort-option" onclick="selectSort('Most Recent')">
+                        <div class="sort-checkbox active"><svg viewBox="0 0 24 24" fill="none" stroke="white"
+                                stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg></div>
+                        <span>Most Recent</span>
+                    </div>
+                    <div class="sort-option" onclick="selectSort('Most Relevant')">
+                        <div class="sort-checkbox"></div>
+                        <span>Most Relevant</span>
+                    </div>
+                    <div class="sort-option" onclick="selectSort('Alphabetic')">
+                        <div class="sort-checkbox"></div>
+                        <span>Alphabetic</span>
+                    </div>
+                    <div class="sort-option" onclick="selectSort('Most Popular')">
+                        <div class="sort-checkbox"></div>
+                        <span>Most Popular</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-count" id="resultsCount">Loading matches...</div>
+
+        <div class="grid" id="jobsGrid">
+            <!-- Dynamic Job Cards will be injected here -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="filter-modal">
+        <div class="modal">
+            <div class="modal-body">
+
+                <div class="modal-sidebar">
+                    <div class="modal-nav-item" onclick="switchTab('industry', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="2" y1="12" x2="22" y2="12" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg>
+                        Industry
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('match', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        Match
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('salary', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="6" width="20" height="12" rx="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M6 12h.01M18 12h.01" />
+                        </svg>
+                        Salary
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('seniority', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                        </svg>
+                        Seniority
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('postAge', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                            <polyline points="16 7 22 7 22 13" />
+                        </svg>
+                        Post Age
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('jobType', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                        Job Type
+                    </div>
+                    <div class="modal-nav-item" onclick="switchTab('size', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Size
+                    </div>
+                    <div class="modal-nav-item active" onclick="switchTab('location', this)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        Location
+                    </div>
+                </div>
+
+                <div class="modal-content">
+                    <div class="modal-header-container">
+                        <h2 id="modal-title">Location</h2>
+                    </div>
+                    <div class="modal-scroll-body" id="modal-content-body">
+
+                        <div id="tab-match" style="display: none;">
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label class="checkbox-pill"><input type="checkbox" value="high"
+                                        class="match-filter-cb"> High (70% - 100%)</label>
+                                <label class="checkbox-pill"><input type="checkbox" value="medium"
+                                        class="match-filter-cb"> Medium (40% - 69%)</label>
+                                <label class="checkbox-pill"><input type="checkbox" value="low" class="match-filter-cb">
+                                    Low (0% - 39%)</label>
+                            </div>
+                        </div>
+                        <div id="tab-industry" style="display: none;">
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Energy</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Defense</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Space</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Fashion</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Media</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Crypto</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Entertainment</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox"> AI /
+                                    ML</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox"> Music
+                                    Tech</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox"> Small
+                                    Business</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Hospitality</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Sports</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Healthcare</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Gaming</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Non-Profits</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox"> Social
+                                    Impact</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    SaaS</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Fintech</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox"> Climate
+                                    Tech</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    Wellness</label>
+                                <label class="checkbox-pill" style="margin-bottom:0;"><input type="checkbox">
+                                    E-Commerce</label>
+                            </div>
+                        </div>
+
+                        <div id="tab-salary" style="display: none; height: 100%;">
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; width: 100%;">
+                                <div
+                                    style="display: flex; align-items: center; gap: 24px; width: 100%; max-width: 480px; margin-top: -60px;">
+                                    <div style="display: flex; align-items: center; gap: 12px; position: relative;">
+                                        <span style="font-size: 22px; color: #888; font-weight: 500;">$</span>
+                                        <input type="text" id="salary-input" value="0"
+                                            style="width: 64px; height: 48px; border-radius: 12px; border: none; background: #F0F0F0; font-size: 22px; text-align: center; font-family: var(--font-family); color: #111; font-weight: 500; outline: none;">
+                                        <span
+                                            style="font-size: 18px; color: #888; font-weight: 500; white-space: nowrap;">K
+                                            /Year</span>
+                                        <div
+                                            style="position: absolute; top: 60px; left: 32px; background: #111; color: white; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; white-space: nowrap;">
+                                            Minimum Salary
+                                            <div
+                                                style="position: absolute; top: -4px; left: 30px; width: 8px; height: 8px; background: #111; transform: rotate(45deg);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="range" id="salary-slider" class="custom-slider" min="0" max="300"
+                                        value="0" style="flex-grow: 1;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-seniority" style="display: none;">
+                            <label class="checkbox-pill"><input type="checkbox"> Early Career (0 - 5 years)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Mid Career (5 - 10 years)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Senior (10+ years)</label>
+                        </div>
+
+                        <div id="tab-postAge" style="display: none; height: 100%;">
+                            <div
+                                style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column; width: 100%;">
+                                <div
+                                    style="display: flex; align-items: center; gap: 12px; width: 100%; max-width: 480px; margin-top: -60px; justify-content: center;">
+                                    <span
+                                        style="font-size: 18px; color: #888; font-weight: 500; white-space: nowrap;">Past</span>
+                                    <input type="text" id="postage-input" value="30"
+                                        style="width: 56px; height: 48px; border-radius: 12px; border: none; background: #F0F0F0; font-size: 22px; text-align: center; font-family: var(--font-family); color: #111; font-weight: 500; outline: none;">
+                                    <span
+                                        style="font-size: 18px; color: #888; font-weight: 500; white-space: nowrap;">days</span>
+                                </div>
+                                <div style="width: 100%; max-width: 480px; margin-top: 20px;">
+                                    <input type="range" id="postage-slider" min="1" max="30" value="30"
+                                        class="custom-slider">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-jobType" style="display: none;">
+                            <label class="checkbox-pill"><input type="checkbox"> Internship</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Full Time</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Part Time</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Contract</label>
+                        </div>
+
+                        <div id="tab-size" style="display: none;">
+                            <label class="checkbox-pill"><input type="checkbox"> Small (1–50 people)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Medium (51–200)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Growing (201–500)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Large (501–1000)</label>
+                            <label class="checkbox-pill"><input type="checkbox"> Enterprise (1000+)</label>
+                        </div>
+
+                        <div id="tab-location" style="display: block;">
+                            <input type="text" class="modal-input" placeholder="e.g. New York, Remote, San Francisco" value="">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-light" onclick="clearAllFilters()">Clear
+                    all</button>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-gray" onclick="closeModal()">Cancel</button>
+                    <button class="btn btn-dark btn-disabled" id="show-results-btn" onclick="submitFilters()"
+                        style="white-space: nowrap;">Show Results</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/jobs-board.js"></script>
+</body>
+
+</html>

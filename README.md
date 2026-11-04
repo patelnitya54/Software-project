@@ -1,528 +1,149 @@
-# Personalized Job Scraper & Job Matching System
+# JobPath — Candidate Matching & Direct ATS Job Board
 
-## 📌 Project Overview
-
-The **Personalized Job Scraper & Job Matching System** is a software project designed to help job seekers find relevant job opportunities based on their skills, experience, interests, and career preferences.
-
-The system collects job information from permitted/publicly accessible job sources, analyzes the user's resume and profile, and calculates a **job matching score** for each job.
-
-The project also aims to provide an application assistant that can use the user's structured profile and resume information to help fill job application forms.
+A high-performance job board platform with real-time company ATS scraping (Greenhouse, Ashby, Awwwards) and an intelligent candidate profile matching engine.
 
 ---
 
-## 🎯 Project Objective
+## Architecture Overview
 
-The main objectives of this project are:
+The project is structured into distinct **Frontend** and **Backend** subsystems following software engineering best practices:
 
-* Allow users to create an account and login securely.
-* Collect user career preferences through an onboarding process.
-* Allow users to upload their resume.
-* Extract useful information from the resume.
-* Create a structured user profile from the resume.
-* Collect and organize job information from job sources.
-* Match jobs with the user's skills and requirements.
-* Calculate an understandable matching score.
-* Display recommended jobs according to their matching score.
-* Allow users to save and track jobs.
-* Assist users with job applications using their profile information.
-* Use AI to assist with application questions while avoiding invented candidate information.
-
----
-
-## 🚀 Planned Features
-
-### 1. User Authentication
-
-* User registration
-* User login
-* Logout
-* Protected user pages
-
-### 2. User Onboarding
-
-The onboarding process collects information such as:
-
-* Name
-* Location
-* Education
-* Work experience
-* Desired job role
-* Technical skills
-* Preferred location
-* Remote / Hybrid / On-site preference
-* Expected salary
-* Employment type
-
-### 3. Resume Upload & Parsing
-
-Users will be able to upload their resume.
-
-Supported formats planned:
-
-* PDF
-* DOCX
-
-The system will extract information such as:
-
-* Personal information
-* Skills
-* Education
-* Work experience
-* Projects
-* Certifications
-
----
-
-## 🧠 User Profile
-
-Resume information will be converted into a structured JSON profile.
-
-Example:
-
-```json
-{
-  "personal": {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "phone": "+91XXXXXXXXXX"
-  },
-  "skills": [
-    "Python",
-    "FastAPI",
-    "PostgreSQL",
-    "React"
-  ],
-  "experience": [
-    {
-      "company": "ABC Technologies",
-      "role": "Software Developer",
-      "years": 2
-    }
-  ],
-  "preferences": {
-    "job_roles": [
-      "Backend Developer",
-      "Software Engineer"
-    ],
-    "location": "Ahmedabad",
-    "work_mode": "Remote"
-  }
-}
 ```
-
-This structured profile will be used by the matching and application-assistance modules.
-
----
-
-## 🔎 Job Scraping
-
-The system will collect job information from selected job sources that permit the required access.
-
-The scraper will collect information such as:
-
-* Job title
-* Company
-* Location
-* Job description
-* Required skills
-* Experience requirements
-* Salary, when available
-* Job URL
-* Posted date
-* Source
-
-The scraper will also perform data cleaning and duplicate detection.
-
-> **Note:** The project will respect applicable website terms, robots rules, rate limits, and access restrictions. It will not attempt to bypass CAPTCHA or anti-bot protections.
-
----
-
-## 📊 Job Matching Algorithm
-
-Each job will receive a matching score based on the user's profile.
-
-An initial version of the scoring system may consider:
-
-| Factor           | Weight |
-| ---------------- | -----: |
-| Skills           |    35% |
-| Experience       |    20% |
-| Job Title        |    15% |
-| Location         |    10% |
-| Salary           |    10% |
-| User Preferences |    10% |
-
-### Example
-
-```text
-Job Match Score: 86%
-
-Skills          92%
-Experience      80%
-Job Title       95%
-Location       100%
-Salary          70%
-Preferences      85%
-```
-
-The system will also provide an explanation of the score, such as:
-
-```text
-Matched Skills:
-✓ Python
-✓ FastAPI
-✓ PostgreSQL
-
-Potential Skill Gaps:
-⚠ AWS
-⚠ Kubernetes
-```
-
-The initial matching algorithm will use deterministic rules. Semantic matching/embeddings may be explored later.
-
----
-
-## 💼 Job Dashboard
-
-The dashboard will display recommended jobs based on the matching score.
-
-Planned functionality:
-
-* Recommended jobs
-* Search jobs
-* Filter jobs
-* Sort by matching score
-* Sort by date
-* Save jobs
-* View job details
-* Track applications
-
-Example:
-
-```text
-Backend Developer
-ABC Technologies
-
-Match: 91%
-
-✓ Python
-✓ FastAPI
-✓ PostgreSQL
-⚠ AWS
-
-Bangalore | ₹12–18 LPA
-
-[View Job] [Save]
-```
-
----
-
-## 📝 Application Assistant
-
-The application module will help users complete job application forms using information from their structured profile.
-
-Example:
-
-```text
-First Name:       John
-Last Name:        Doe
-Email:            john@example.com
-Phone:            +91XXXXXXXXXX
-
-[ Autofill from Profile ]
-```
-
-The system will use the user's existing profile information rather than asking the user to repeatedly enter the same information.
-
----
-
-## 🤖 AI Application Assistant
-
-An AI module is planned to help answer application questions.
-
-The AI may use:
-
-```text
-User Profile
-     +
-Resume Information
-     +
-Job Description
-     +
-Application Question
-     ↓
-AI Generated Draft
-```
-
-Example:
-
-```text
-Question:
-
-Why are you interested in this position?
-
-        ↓
-
-AI-generated answer
-        ↓
-
-User reviews and edits
-```
-
-The AI should only use information supported by the user's profile/resume and should not invent qualifications, experience, certifications, or other candidate facts.
-
----
-
-## 📌 Application Tracking
-
-Users will be able to track applications using statuses such as:
-
-```text
-Saved
-  ↓
-Applied
-  ↓
-Interview
-  ↓
-Technical Round
-  ↓
-HR Round
-  ↓
-Offer / Rejected
-```
-
----
-
-# 🛠️ Technology Stack
-
-The planned technology stack is:
-
-### Frontend
-
-* Next.js
-* TypeScript
-* Tailwind CSS
-
-### Backend
-
-* Python
-* FastAPI
-
-### Database
-
-* PostgreSQL
-
-### Resume Processing
-
-* PyMuPDF
-* python-docx
-
-### Web Scraping
-
-* Python
-* Requests
-* BeautifulSoup
-* Playwright (when required and permitted)
-
-### AI
-
-* LLM API
-
-### Version Control
-
-* Git
-* GitHub
-
----
-
-# 📁 Project Structure
-
-The project will gradually follow a structure similar to:
-
-```text
-job-scraper/
-│
-├── frontend/
+jobpath/
+├── backend/                       # Python FastAPI Backend
 │   ├── app/
-│   ├── components/
-│   └── services/
-│
-├── backend/
-│   ├── app/
-│   │   ├── api/
-│   │   ├── models/
-│   │   ├── schemas/
+│   │   ├── config.py              # Centralized pydantic-settings config
+│   │   ├── main.py                # FastAPI app + CORS + lifespan data loading
+│   │   ├── models/                # Pydantic schemas (Job, CandidateProfile, etc.)
+│   │   │   ├── job.py
+│   │   │   └── profile.py
+│   │   ├── routers/               # REST API Endpoints
+│   │   │   ├── jobs.py            # GET /api/jobs, GET /api/jobs/:id
+│   │   │   ├── profile.py         # POST /api/profile/validate
+│   │   │   └── match.py           # POST /api/match (ranking engine)
+│   │   ├── scrapers/              # Direct ATS Scraping Engine
+│   │   │   ├── base.py            # BaseScraper, CircuitBreaker, retry backoff
+│   │   │   ├── greenhouse.py      # Greenhouse Boards API scraper
+│   │   │   └── ashby.py           # Ashby Public API scraper
 │   │   ├── services/
-│   │   └── main.py
-│   │
-│   └── tests/
+│   │   │   ├── data_loader.py     # In-memory indexed JobStore
+│   │   │   └── matching.py        # Semantic role & skill matching engine
+│   │   └── utils/
+│   │       └── helpers.py         # Text sanitization, salary & location parsing
+│   ├── data/                      # Company rosters and scraped datasets (gitignored)
+│   │   ├── greenhouse_companies.txt
+│   │   ├── ashby_companies.txt
+│   │   └── jobs/
+│   │       ├── all_greenhouse_jobs.json
+│   │       ├── ashby.json
+│   │       └── awwwards.json
+│   ├── scripts/
+│   │   └── scrape.py              # CLI scraper runner
+│   ├── requirements.txt           # Pinned dependencies
+│   └── .env.example               # Environment variables template
 │
-├── scraper/
-│   ├── scrapers/
-│   ├── parsers/
-│   └── utils/
-│
-├── matching/
-│   ├── scoring.py
-│   └── normalization.py
-│
-├── ai/
-│   ├── resume_parser.py
-│   └── application_assistant.py
-│
-├── docs/
+├── frontend/                      # Static Web Application
+│   ├── index.html                 # Landing page
+│   ├── onboarding.html            # Profile creation & question flow
+│   ├── jobs-board.html            # Main job board & ATS source filters
+│   ├── job-details.html           # Full job view & rich description
+│   ├── analytics-dashboard.html   # Campaign & conversion tracking
+│   ├── splash-loader.html         # Loading state & matcher transition
+│   ├── css/
+│   │   ├── base.css               # Design tokens, reset, typography
+│   │   ├── components.css         # Buttons, cards, tags, modals, inputs
+│   │   ├── layout.css             # Sidebar, search toolbar, job grid
+│   │   ├── onboarding.css         # Onboarding question flows & progress
+│   │   ├── jobs-board.css         # Job board view & filter drawers
+│   │   ├── job-details.css        # Rich detail layout & link actions
+│   │   └── analytics.css          # Analytics charts & funnel metrics
+│   ├── js/
+│   │   ├── api.js                 # Centralized backend REST API client
+│   │   ├── utils.js               # escapeHtml, formatSalary, toast, debounce
+│   │   ├── state.js               # State management (localStorage sync)
+│   │   ├── onboarding.js          # Onboarding controller & suggestions
+│   │   ├── jobs-board.js          # Job board pagination, live search & filters
+│   │   ├── job-details.js         # Single job loader & rich text renderer
+│   │   └── analytics.js           # Funnel metrics & email event logging
+│   └── assets/
+│       └── images/                # Logos, backgrounds, UI previews
 │
 ├── .gitignore
-├── README.md
-└── LICENSE
+├── package.json                   # Root development & test runner scripts
+└── README.md
 ```
 
-> The structure may change as development progresses.
+---
+
+## Getting Started
+
+### Prerequisites
+- **Python 3.10+** (with `uv` or `pip`)
+- **Node.js 18+**
+
+### 1. Setup Backend
+```bash
+cd backend
+
+# Create virtual environment
+uv venv .venv
+# Or: python -m venv .venv
+
+# Install dependencies
+uv pip install -r requirements.txt
+# Or: pip install -r requirements.txt
+
+# Start backend server
+.venv\Scripts\python.exe -m uvicorn app.main:app --reload --port 8000
+```
+Backend API will be live at `http://localhost:8000`
+Interactive API Docs (Swagger): `http://localhost:8000/docs`
+
+### 2. Setup Frontend
+```bash
+# In project root or frontend folder
+npm run dev:frontend
+```
+Frontend will be accessible at `http://localhost:3000`
 
 ---
 
-# 🧪 Current Development Status
- 
- Current activities:
+## API Endpoints
 
-* [x] Create GitHub repository
-* [x] Setup development environment
-* [x] Create initial project structure
-* [x] Create initial class/modules
-* [ ] Implement basic features
-* [ ] Connect frontend and backend
-* [ ] Connect database
-
- 
-# 📅 Development Roadmap
-
-## Phase 1 – Foundation
-
-* Project setup
-* GitHub repository
-* Database design
-* Authentication
-* Basic frontend/backend structure
-
-## Phase 2 – User Profile
-
-* Onboarding
-* Resume upload
-* Resume parsing
-* Structured JSON profile
-
-## Phase 3 – Job Collection
-
-* Job scraper
-* Job database
-* Data normalization
-* Duplicate detection
-
-## Phase 4 – Job Matching
-
-* Skill matching
-* Experience matching
-* Location matching
-* Preference matching
-* Match score
-* Match explanation
-
-## Phase 5 – Job Dashboard
-
-* Recommended jobs
-* Search
-* Filters
-* Saved jobs
-* Job details
-
-## Phase 6 – Application Assistant
-
-* Application form
-* Profile-based autofill
-* Application tracking
-
-## Phase 7 – AI Features
-
-* AI application question assistance
-* Resume/job context
-* Fact-based answer generation
-
-## Phase 8 – Testing & Deployment
-
-* Unit testing
-* API testing
-* Security review
-* Performance optimization
-* Deployment
-* Documentation
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/health` | Health check & loaded job count |
+| `GET` | `/api/jobs` | Paginated jobs list (`?page=1&page_size=60&source=greenhouse&search=python`) |
+| `GET` | `/api/jobs/{job_id}` | Detailed single job listing |
+| `POST` | `/api/match` | Run matching engine for a candidate profile |
+| `POST` | `/api/profile/validate` | Validate profile completeness score |
 
 ---
 
-# 🎓 Academic Purpose
+## Scraping New Jobs
 
-This project demonstrates practical implementation of concepts including:
+To refresh ATS job postings directly from company endpoints:
+```bash
+# Scrape all companies
+npm run scrape
 
-* Software engineering
-* Object-oriented programming
-* Web development
-* REST APIs
-* Database management
-* Web scraping
-* Natural language processing
-* Information extraction
-* Recommendation systems
-* Algorithm design
-* Artificial intelligence
-* Git and GitHub
-* Software testing
+# Scrape Greenhouse only
+npm run scrape:greenhouse
+
+# Scrape Ashby only
+npm run scrape:ashby
+```
 
 ---
 
-# 🔐 Privacy & Security
+## Verification & Testing
 
-User resumes and profile information may contain sensitive personal information.
+Run both test suites to ensure code integrity:
+```bash
+# Test backend data loading & models
+npm run test:backend
 
-The application should:
+# Test frontend JavaScript syntax
+npm run test:frontend
+```
 
-* Protect uploaded resumes.
-* Avoid exposing user data publicly.
-* Store secrets using environment variables.
-* Validate uploaded files.
-* Implement authentication and authorization.
-* Avoid logging sensitive information.
-* Restrict access to user-specific data.
-* Allow users to review AI-generated application answers before using them.
-
----
-
-# 📌 Future Enhancements
-
-Possible future improvements include:
-
-* Semantic job matching using embeddings
-* Personalized job recommendations
-* Preference learning based on saved/applied jobs
-* Job freshness ranking
-* Advanced analytics
-* Email notifications
-* Browser-assisted application workflows
-* More permitted job sources
-* Resume improvement suggestions
-* Skill-gap analysis
-* Career recommendations
-
----
-
-# 👨‍💻 Project Status
-
-This project is currently under active development as a **3-month software project**.
-
-Development is being completed incrementally, with each phase tested before moving to the next phase.
-
----
-
-## 📜 License
-
-This project is created for educational and academic purposes.
-
-License details will be added as the project progresses.

@@ -1,403 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JobSeek — Find the Role That Fits You</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/landing.css">
-  <link rel="stylesheet" href="css/auth.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workin' | Find your life's work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cohere-black': '#000000',
+                        'near-black': '#17171c',
+                        'soft-stone': '#eeece7',
+                        'ink': '#212121',
+                        'muted-slate': '#93939f',
+                        'card-border': '#f2f2f2',
+                        'coral': '#ff7759',
+                    },
+                    fontFamily: {
+                        display: ['Space Grotesk', 'sans-serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
 
-  <!-- =========================================================================
-       NAVBAR
-       ========================================================================= -->
-  <nav class="navbar">
-    <div class="container navbar-inner">
-      <!-- Left: JS Logo + Name -->
-      <a href="index.html" class="js-brand">
-        <div class="js-logo-icon">JS</div>
-        <div class="js-brand-text">JOB<span>SEEK</span></div>
-      </a>
+<body class="font-body text-ink bg-white overflow-x-hidden antialiased">
 
-      <!-- Right: Login & Sign Up Actions -->
-      <div class="navbar-actions">
-        <button type="button" class="btn btn-outline" data-action="open-login">Log In</button>
-        <a href="signup.html" class="btn btn-primary">Sign Up</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- =========================================================================
-       HERO SECTION
-       ========================================================================= -->
-  <section class="hero-section">
-    <div class="hero-background-glow"></div>
-    <div class="container hero-grid">
-      <!-- Left Hero Content -->
-      <div class="hero-content">
-        <div class="hero-badge">
-          <span class="sparkle">✦</span>
-          <span>Next-Gen Career Discovery Platform</span>
+    <section class="hero group relative min-h-[calc(100vh-16px)] m-[8px] rounded-[12px] overflow-hidden flex flex-col justify-center items-center text-center text-white px-[20px] py-[100px] bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('assets/images/hero-bg.png')] bg-cover bg-center bg-no-repeat before:content-[''] before:absolute before:inset-0 before:backdrop-blur-[4px] before:z-0 before:pointer-events-none" id="hero">
+        <div class="logo-wrapper absolute top-0 left-0 w-full h-full flex justify-center items-center border-none outline-none z-0" id="logo-wrapper">
+            <img src="assets/images/logo.png" class="logo-spotlight block w-[85vw] max-h-[130vh] h-auto object-contain mt-[420px] ml-[50px] border-none pointer-events-none opacity-0 group-hover:opacity-90 transition-opacity duration-500 [mask-image:radial-gradient(circle_600px_at_var(--mouse-x,50%)_var(--mouse-y,50%),black_0%,transparent_100%)] [-webkit-mask-image:radial-gradient(circle_800px_at_var(--mouse-x,50%)_var(--mouse-y,50%),black_0%,transparent_100%)] brightness-50 peer" alt="Interactive Logo">
         </div>
-
-        <h1 class="hero-title">
-          Find the Role That <span class="gradient-text">Fits You</span>
-        </h1>
-
-        <p class="hero-subtitle">
-          Discover high-impact opportunities tailored to your skills, experience, and career aspirations with precision matching.
-        </p>
-
-        <!-- Big Search Bar (Redirects to signup on interaction) -->
-        <div class="hero-search-box">
-          <div class="search-icon-wrapper">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          <input 
-            type="text" 
-            id="heroSearchInput" 
-            class="hero-search-input" 
-            placeholder="Search by role, skill (e.g. Frontend, Python, React)..."
-            autocomplete="off"
-          >
-          <button type="button" id="findJobBtn" class="btn btn-primary btn-lg">
-            Find Jobs
-          </button>
-        </div>
-
-        <!-- Quick Search Suggestion Tags -->
-        <div class="search-tags-hint">
-          <span>Popular:</span>
-          <span class="search-tag-chip">Software Engineer</span>
-          <span class="search-tag-chip">Frontend Developer</span>
-          <span class="search-tag-chip">Remote</span>
-          <span class="search-tag-chip">Data Analyst</span>
-        </div>
-      </div>
-
-      <!-- Right Hero Visual / Mockup Preview Card -->
-      <div class="hero-visual">
-        <div class="floating-decorative-circle circle-1"></div>
-        <div class="floating-decorative-circle circle-2"></div>
-        
-        <div class="preview-card-wrapper">
-          <div class="preview-job-card">
-            <div class="preview-card-header">
-              <div style="display: flex; align-items: center; gap: 0.85rem;">
-                <div class="company-logo-placeholder">NX</div>
-                <div>
-                  <h3 class="preview-job-title">Senior Frontend Engineer</h3>
-                  <div class="preview-company-name">Nexus Labs · San Francisco / Remote</div>
-                </div>
-              </div>
-              <div class="match-pill">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-                <span>94% Match</span>
-              </div>
+        <header class="absolute top-0 left-0 w-full px-[40px] py-[24px] flex justify-between items-center z-[100]">
+            <div class="nav-left flex items-center gap-[24px] justify-self-start">
+                <a href="index.html" class="logo flex items-center no-underline"><img src="assets/images/logo.png" alt="workin' Logo" class="h-[25px] block w-auto ml-[80px]"></a>
+                <a href="jobs-board.html" class="btn-glass bg-white/10 border border-white/20 text-white px-[16px] py-[8px] rounded-[32px] no-underline text-[14px] backdrop-blur-[10px] transition-all duration-300 mr-[80px] hover:bg-white/20">Explore</a>
             </div>
 
-            <div class="preview-tags-row">
-              <span class="preview-tag">Remote</span>
-              <span class="preview-tag">Full-time</span>
-              <span class="preview-tag">React / TypeScript</span>
-              <span class="preview-tag">Design Systems</span>
+            <div class="nav-right flex items-center gap-[24px] justify-self-end">
+                <a href="onboarding.html" class="btn-glass bg-white/10 border border-white/20 text-white px-[16px] py-[8px] rounded-[32px] no-underline text-[14px] backdrop-blur-[10px] transition-all duration-300 hover:bg-white/20">Log in</a>
+                <a href="onboarding.html" class="btn-primary bg-white text-near-black border-none px-[20px] py-[8px] rounded-[32px] no-underline text-[14px] font-semibold transition-all duration-300 mr-[80px] hover:bg-[#e0e0e0]">Sign up</a>
             </div>
+        </header>
 
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 1.25rem;">
-              Building scalable frontend architectures and delightful interactive user experiences for next-generation web products.
-            </p>
+        <div class="hero-content relative z-10 max-w-[800px] flex flex-col items-center">
+            <h1 class="text-[56px] font-bold leading-[1.1] mb-[40px] tracking-[-0.02em]">Find your life's work</h1>
 
-            <div class="preview-card-footer">
-              <div class="preview-salary">
-                $130k - $160k <span>/ year</span>
-              </div>
-              <a href="signup.html" class="btn btn-secondary btn-sm">View Details</a>
+            <div class="search-box flex items-center bg-white/10 border border-white/20 rounded-[40px] p-[6px_8px_6px_20px] w-full max-w-[620px] backdrop-blur-[20px] transition-all duration-300 focus-within:bg-white/15 focus-within:border-white/40 focus-within:shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+                <input type="text" id="heroSearchInput" placeholder="Try 'Full Stack Engineer in San Francisco'..." class="flex-1 bg-transparent border-none text-white text-[15px] outline-none placeholder:text-white/60 font-body">
+                <button onclick="handleHeroSearch()" class="search-btn bg-white text-near-black border-none px-[24px] py-[10px] rounded-[32px] font-semibold text-[14px] cursor-pointer transition-all duration-300 hover:bg-[#e0e0e0]">Search</button>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <!-- Floating Sub Indicator Card -->
-          <div class="floating-sub-card">
-            <div class="sub-card-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-              </svg>
+    <!-- Scroll Text Section -->
+    <section class="scroll-text-container relative h-[300vh] bg-white">
+        <div class="sticky-wrapper sticky top-0 h-screen flex flex-col justify-center items-center px-[20px] max-w-[1000px] mx-auto text-center">
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                Finding a job shouldn't feel like a full-time job.
             </div>
-            <div class="sub-card-text">
-              <span class="sub-card-label">Personalized Fit</span>
-              <span class="sub-card-val">Tailored to Your Stack</span>
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                Endless forms, radio silence, and ghost job listings.
             </div>
-          </div>
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                We built Workin' to put you back in the driver's seat.
+            </div>
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                Real-time job scrapes directly from company ATS endpoints.
+            </div>
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                Intelligent candidate matching calibrated to your skills.
+            </div>
+            <div class="scroll-line text-[44px] leading-[1.3] font-medium transition-colors duration-200 py-[4px]" style="color: var(--muted-slate); opacity: 0.25;">
+                Transparent salaries, direct apply links, no middleman.
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================================
-       STATS STRIP
-       ========================================================================= -->
-  <section class="stats-strip">
-    <div class="container stats-grid">
-      <div class="stat-item">
-        <span class="stat-number">10K+</span>
-        <span class="stat-label">Verified Tech Opportunities</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">2,500+</span>
-        <span class="stat-label">Fast-Growing Startups & Companies</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">95%</span>
-        <span class="stat-label">Candidate Match Satisfaction</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       HOW JOBSEEK WORKS
-       ========================================================================= -->
-  <section class="section-wrapper">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-pill">Step-By-Step Process</span>
-        <h2 class="section-title">How JobSeek Works</h2>
-        <p class="section-description">
-          A streamlined 4-step discovery engine designed to connect you with opportunities that match your true potential.
-        </p>
-      </div>
-
-      <div class="steps-grid">
-        <!-- Step 1 -->
-        <div class="step-card">
-          <div class="step-number">01</div>
-          <div class="step-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <h3 class="step-card-title">Create Your Profile</h3>
-          <p class="step-card-text">
-            Sign up in seconds and input your baseline details, experience, and educational background.
-          </p>
+    <footer class="bg-near-black text-white/60 py-[48px] px-[40px] text-center text-[13px]">
+        <div class="max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-[16px]">
+            <div>© 2026 Workin'. Direct ATS job board & matching platform.</div>
+            <div class="flex gap-[20px]">
+                <a href="jobs-board.html" class="text-white/80 hover:text-white">Job Board</a>
+                <a href="onboarding.html" class="text-white/80 hover:text-white">Profile</a>
+                <a href="analytics-dashboard.html" class="text-white/80 hover:text-white">Analytics</a>
+            </div>
         </div>
+    </footer>
 
-        <!-- Step 2 -->
-        <div class="step-card">
-          <div class="step-number">02</div>
-          <div class="step-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <line x1="16" y1="13" x2="8" y2="13"></line>
-              <line x1="16" y1="17" x2="8" y2="17"></line>
-              <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-          </div>
-          <h3 class="step-card-title">Set Your Preferences</h3>
-          <p class="step-card-text">
-            Complete the interactive onboarding questionnaire to define your target roles, locations, and skills.
-          </p>
-        </div>
+    <script src="js/state.js"></script>
+    <script>
+        // Scroll opacity effect
+        window.addEventListener('scroll', () => {
+            const container = document.querySelector('.scroll-text-container');
+            const lines = document.querySelectorAll('.scroll-line');
+            if (!container || !lines.length) return;
 
-        <!-- Step 3 -->
-        <div class="step-card">
-          <div class="step-number">03</div>
-          <div class="step-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          <h3 class="step-card-title">Discover Relevant Jobs</h3>
-          <p class="step-card-text">
-            Filter through curated positions from top employers filtered against your exact criteria.
-          </p>
-        </div>
+            const containerTop = container.offsetTop;
+            const containerHeight = container.offsetHeight;
+            const windowHeight = window.innerHeight;
 
-        <!-- Step 4 -->
-        <div class="step-card">
-          <div class="step-number">04</div>
-          <div class="step-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h3 class="step-card-title">Find Your Match</h3>
-          <p class="step-card-text">
-            Understand how closely each role matches your stack, compensation goals, and work preferences.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+            let progress = (window.scrollY - containerTop) / (containerHeight - windowHeight);
+            progress = Math.max(0, Math.min(1, progress));
 
-  <!-- =========================================================================
-       WHY JOBSEEK
-       ========================================================================= -->
-  <section class="section-wrapper" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-pill">Core Advantages</span>
-        <h2 class="section-title">Why Choose JobSeek</h2>
-        <p class="section-description">
-          We strip away the noise of generic job boards to give you focused, high-relevance career discovery.
-        </p>
-      </div>
+            const totalLines = lines.length;
 
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <h3 class="why-card-title">Personalized Discovery</h3>
-          <p class="why-card-text">
-            Stop scrolling through thousands of unrelated listings. JobSeek tailors your job feed to your verified skills and goals.
-          </p>
-        </div>
+            lines.forEach((line, index) => {
+                const startThreshold = index / totalLines;
+                const endThreshold = (index + 1) / totalLines;
 
-        <div class="why-card">
-          <div class="why-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-          </div>
-          <h3 class="why-card-title">Direct Opportunities</h3>
-          <p class="why-card-text">
-            Discover roles across remote, hybrid, and onsite hubs directly from verified startups and top tech enterprises.
-          </p>
-        </div>
+                let lineProgress = (progress - startThreshold) / (endThreshold - startThreshold);
+                lineProgress = Math.max(0, Math.min(1, lineProgress));
 
-        <div class="why-card">
-          <div class="why-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="18" y1="20" x2="18" y2="10"></line>
-              <line x1="12" y1="20" x2="12" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="14"></line>
-            </svg>
-          </div>
-          <h3 class="why-card-title">Transparent Insights</h3>
-          <p class="why-card-text">
-            Understand expectations upfront with clear salary ranges, tech stack breakdowns, and candidate fit insights.
-          </p>
-        </div>
-      </div>
+                const minOpacity = 0.25;
+                const maxOpacity = 1.0;
+                line.style.opacity = minOpacity + (maxOpacity - minOpacity) * lineProgress;
+                line.style.color = lineProgress >= 1 ? 'black' : 'var(--muted-slate)';
+            });
+        });
 
-      <!-- Bottom Banner -->
-      <div class="cta-banner">
-        <h2 class="cta-title">Ready to take the next step in your career?</h2>
-        <p class="cta-subtitle">
-          Complete your 2-minute profile questionnaire and discover opportunities curated specifically for you.
-        </p>
-        <a href="signup.html" class="btn btn-primary btn-lg">Get Started Free</a>
-      </div>
-    </div>
-  </section>
+        function handleHeroSearch() {
+            const input = document.getElementById('heroSearchInput');
+            const query = input ? input.value.trim() : '';
+            if (query) {
+                State.setInitialSearch(query);
+            }
+            window.location.href = 'jobs-board.html';
+        }
 
-  <!-- =========================================================================
-       FOOTER
-       ========================================================================= -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <a href="index.html" class="js-brand" style="margin-bottom: 0.5rem;">
-            <div class="js-logo-icon">JS</div>
-            <div class="js-brand-text">JOB<span>SEEK</span></div>
-          </a>
-          <p style="font-size: 0.875rem; color: var(--text-muted); max-width: 320px; margin-top: 0.5rem;">
-            Discover roles that fit you. The modern, personalized job discovery platform for ambitious tech professionals.
-          </p>
-        </div>
+        document.addEventListener('DOMContentLoaded', () => {
+            const spotlightImg = document.querySelector('.logo-spotlight');
+            const hero = document.getElementById('hero');
+            if (spotlightImg && hero) {
+                hero.addEventListener('mousemove', (e) => {
+                    const rect = spotlightImg.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    spotlightImg.style.setProperty('--mouse-x', `${x}px`);
+                    spotlightImg.style.setProperty('--mouse-y', `${y}px`);
+                });
+            }
 
-        <ul class="footer-links">
-          <li><a href="#" class="footer-link">About</a></li>
-          <li><a href="#" class="footer-link">Privacy Policy</a></li>
-          <li><a href="#" class="footer-link">Terms of Service</a></li>
-          <li><a href="#" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-bottom">
-        <span>&copy; 2026 JobSeek Technologies Inc. All rights reserved.</span>
-        <span>Frontend Prototype v1.0</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- =========================================================================
-       LOGIN MODAL
-       ========================================================================= -->
-  <div class="modal-backdrop" id="loginModal">
-    <div class="modal-card">
-      <button type="button" class="modal-close-btn" id="closeLoginModal" aria-label="Close modal">&times;</button>
-
-      <div class="auth-header">
-        <div class="js-brand auth-logo-center">
-          <div class="js-logo-icon">JS</div>
-          <div class="js-brand-text">JOB<span>SEEK</span></div>
-        </div>
-        <h2 class="auth-title">Welcome Back</h2>
-        <p class="auth-subtitle">Log in to access your JobSeek preferences</p>
-      </div>
-
-      <div id="loginErrorAlert" class="form-alert form-alert-error" style="display: none;"></div>
-
-      <form id="modalLoginForm" class="auth-form" novalidate>
-        <div class="form-group">
-          <label class="form-label" for="loginEmail">Email Address</label>
-          <input 
-            type="email" 
-            id="loginEmail" 
-            class="form-control" 
-            placeholder="you@example.com"
-            required
-          >
-          <div class="invalid-feedback"></div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="loginPassword">
-            <span>Password</span>
-            <a href="#" style="font-size: 0.75rem; color: var(--primary);">Forgot?</a>
-          </label>
-          <input 
-            type="password" 
-            id="loginPassword" 
-            class="form-control" 
-            placeholder="••••••••"
-            required
-          >
-          <div class="invalid-feedback"></div>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 0.5rem;">
-          Log In
-        </button>
-
-        <div class="auth-footer-text">
-          Don't have an account? <a href="signup.html">Sign Up</a>
-        </div>
-
-        <div class="auth-demo-notice">
-          <strong>Demo credentials:</strong><br>
-          Email: <code>demo@jobseek.com</code> | Password: <code>password123</code>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script src="js/auth.js"></script>
+            const heroInput = document.getElementById('heroSearchInput');
+            if (heroInput) {
+                heroInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        handleHeroSearch();
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
+

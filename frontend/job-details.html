@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workin' | Job Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/job-details.css">
+</head>
+
+</head>
+
+<body>
+    <!-- Toast Notification -->
+    <div id="toastNotification" style="position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: #1a1a18; color: #ffffff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; z-index: 100000; display: none; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: opacity 0.3s ease; opacity: 0; pointer-events: none;"></div>
+    <div class="sidebar">
+        <div class="logo" style="cursor: pointer;" onclick="window.location.href='jobs-board.html'" title="Back to Job Board">
+            <img src="assets/images/sidebar-logo.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+
+        <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+        </div>
+        <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+            </svg>
+        </div>
+        <div class="nav-icon active">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+            </svg>
+        </div>
+        <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </div>
+        <div class="nav-icon has-dot">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+            </svg>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+        </div>
+        <div class="avatar">MA</div>
+    </div>
+
+
+    <!-- Main Content Area -->
+    <div class="main-content" style="padding: 0; background: white;">
+
+        <div class="job-detail-header">
+            <button class="back-btn" onclick="window.location.href='jobs-board.html'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="jdPostAge">5 d ago</span>
+            </button>
+            <div class="jd-center">
+                <div class="jd-logo" id="jdCompanyLogo">
+                    <span id="jdLogoText">up</span>
+                </div>
+                <div class="jd-company" id="jdCompanyName">Upbound</div>
+                <h1 class="jd-title" id="jdJobTitle">Global Account Manager [REMOTE]</h1>
+                <div class="jd-tags-row">
+                    <div class="match-pill" id="jdMatchPill">
+                        <svg class="match-circle" viewBox="0 0 36 36">
+                            <path class="circle-bg"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" id="jdMatchCircle" stroke-dasharray="85, 100"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                style="stroke: #10B981;" />
+                        </svg>
+                        <span id="jdMatchText">85% Match</span>
+                    </div>
+                    <div class="jd-tag-green" id="jdExperienceTag">Senior (10+ years)</div>
+                </div>
+                <div class="jd-tags-row-2" id="jdTagsRow2" style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center;">
+                    <div class="jd-tag-outline" id="jdRoleTag">Role</div>
+                    <div class="jd-tag-outline" id="jdLocationTag">Location</div>
+                    <div class="jd-tag-outline" id="jdSalaryTag" style="color: #047857; background: #ECFDF5; border-color: #A7F3D0; font-weight: 600;">Salary</div>
+                    <div class="jd-tag-outline" id="jdSourceTag" style="font-weight: 600;">Source</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jd-tabs-container">
+            <div class="jd-tabs">
+                <div class="jd-tab active" id="tabFullBtn" onclick="switchDetailTab('full')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                    Full version
+                </div>
+                <div class="jd-tab" id="tabSummaryBtn" onclick="switchDetailTab('summary')">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                    Summary &amp; Match Analysis
+                </div>
+            </div>
+        </div>
+
+        <div class="jd-content">
+            <div class="jd-left">
+                <!-- Full Version Panel -->
+                <div id="fullVersionView">
+                    <div id="jdFullBody">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Summary & Match Analysis Panel -->
+                <div id="summaryView" style="display: none;">
+                    <div style="background: #FAFAFA; border: 1px solid #EAEAEA; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+                        <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: #111;">Matching Breakdown</h3>
+                        <p id="jdMatchSummaryText" style="font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 20px;">
+                            Evaluating candidate profile with hybrid weighted matching algorithm.
+                        </p>
+                        <div id="jdScoreBreakdownGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+                            <!-- Score pills -->
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 16px; font-weight: 700; color: #10B981; display: flex; align-items: center; gap: 8px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Why It Matches
+                        </h4>
+                        <ul id="jdWhyItMatchesList" style="padding-left: 20px; font-size: 14px; line-height: 1.6; color: #333; margin-top: 8px;">
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 16px; font-weight: 700; color: #F59E0B; display: flex; align-items: center; gap: 8px;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            What's Missing / Growth Areas
+                        </h4>
+                        <ul id="jdWhatIsMissingList" style="padding-left: 20px; font-size: 14px; line-height: 1.6; color: #333; margin-top: 8px;">
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 15px; font-weight: 600; color: #111; margin-bottom: 10px;">Required &amp; Preferred Skills</h4>
+                        <div id="jdSkillsChipsList" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="jd-right">
+                <div class="jd-sticky-box">
+                    <div class="jd-sticky-header">
+                        <div class="jd-logo-small" id="jdLogoSmall"><span>up</span></div>
+                        <button class="jd-bell-btn" onclick="showToast('Job alerts enabled for ' + currentJob.company)">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="jd-sticky-desc" id="jdStickyDesc">Empowering modern infrastructure for the Agentic AI era.</p>
+                    <div class="jd-compensation">
+                        <span class="jd-comp-label">Compensation <svg width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2"
+                                style="vertical-align: middle; margin-left: 4px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg></span>
+                        <span class="jd-comp-value" id="jdCompValue">$100K or below</span>
+                    </div>
+                    <button id="sidebarApplyBtn" onclick="applyJob()" style="width: 100%; margin-top: 16px; background: #FF8A1E; color: white; border: none; border-radius: 24px; padding: 12px 20px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 12px rgba(255, 138, 30, 0.25);">
+                        Apply on Portal
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </button>
+                </div>
+
+                <!-- Official Job Links Card -->
+                <div class="jd-links-box" style="margin-top: 16px; background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <div style="font-size: 13px; font-weight: 700; color: #111; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Official Job Links (From JSON)
+                    </div>
+                    <div id="jdLinksList" style="display: flex; flex-direction: column; gap: 10px;">
+                        <!-- Dynamic Links -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-action-bar">
+            <div class="fab-generate-group" style="display: flex; align-items: center; gap: 8px;">
+                <button class="status-btn generate" id="generateDraftBtn" onclick="cycleStatus(this)"
+                    style="padding: 8px 14px; height: 36px; border-radius: 20px; font-size: 15px; font-weight: 400; cursor: pointer; border: none; font-family: var(--font-family); background-color: #585756; color: #FFFFFF; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.2s;">Generate
+                    Draft Email</button>
+            </div>
+            <div class="fab-divider"></div>
+            <button class="fab-icon-btn" title="Quick Draft" onclick="document.getElementById('generateDraftBtn').click()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    style="transform: rotate(45deg); margin-bottom: 2px;">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+            <button class="fab-icon-btn" id="fabLikeBtn" title="Save Job" onclick="toggleJobLike()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+            </button>
+            <button class="fab-apply-btn" onclick="applyJob()"
+                style="padding: 8px 14px; height: 36px; border-radius: 20px; font-size: 15px; font-weight: 400; cursor: pointer; border: none; font-family: var(--font-family); background-color: #FF8A1E; color: #FFFFFF; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.2s;">Apply</button>
+        </div>
+
+    <!-- Email Preview Modal -->
+    <div class="email-preview-modal" id="emailPreviewModal"
+        style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.4); display: none; justify-content: center; align-items: center; z-index: 10000;">
+        <div class="email-preview-content"
+            style="background-color: #F3F4F6; width: 800px; max-width: 90%; max-height: 90vh; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 40px rgba(0,0,0,0.1); font-family: var(--font-family);">
+            <div class="preview-header"
+                style="padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E5E7EB;">
+                <h2
+                    style="font-size: 18px; font-weight: 600; color: #111827; display: flex; align-items: center; gap: 8px; margin: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    Email Draft Preview
+                </h2>
+                <button class="preview-close" onclick="closePreviewModal()"
+                    style="background: none; border: none; cursor: pointer; color: #6B7280;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="preview-body"
+                style="padding: 24px; background-color: #FFFFFF; margin: 24px; border-radius: 12px; border: 1px solid #E5E7EB; overflow-y: auto;">
+                <div class="preview-meta" style="margin-bottom: 24px; display: flex; gap: 16px; align-items: center;">
+                    <div class="preview-avatar"
+                        style="width: 40px; height: 40px; background-color: #E0E7FF; color: #4F46E5; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                        R</div>
+                    <div class="preview-meta-text" style="display: flex; flex-direction: column; gap: 4px;">
+                        <span class="name" style="font-weight: 600; color: #111827; font-size: 14px;">Mostafa Saber
+                            <span class="email"
+                                style="color: #6B7280; font-weight: 400;">&lt;careers@ignitebytes.net&gt;</span></span>
+                        <span class="email" style="color: #6B7280; font-size: 13px;">To: Me (Job Application
+                            Outreach)</span>
+                    </div>
+                </div>
+                <div class="preview-subject"
+                    style="font-weight: 600; color: #111827; font-size: 15px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #E5E7EB;">
+                    <span
+                        style="background-color: #E5E7EB; padding: 4px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px;">Subject:</span>
+                    AI-driven project experience from Bhavya Amin
+                </div>
+                <div class="preview-text" style="color: #374151; font-size: 14px; line-height: 1.6;">
+                    <p>Hi Mostafa Saber,</p>
+
+                    <p>My experience in developing AI-driven solutions aligns directly with the requirements of the
+                        role,
+                        particularly through projects like the Smart Business Document Generator where I utilized OCR
+                        for
+                        document digitization and AI for summarization of business documents such as Quotations and Work
+                        Orders. Furthermore, my work on the AI Meeting Monitor involved leveraging AssemblyAI and OpenAI
+                        APIs for real-time audio recording and AI-powered transcription, demonstrating practical
+                        application
+                        of advanced AI technologies.</p>
+
+                    <p>My proficiency in Python, a core language for machine learning, is clearly demonstrated through
+                        its
+                        implementation in the AI Meeting Monitor's FastAPI backend, which also showcases my ability to
+                        build
+                        robust API services. The foundational understanding of Data Structures & Algorithms I possess,
+                        refined by successfully solving over 150 problems on LeetCode, provides a strong analytical
+                        framework essential for tackling complex machine learning challenges.</p>
+
+                    <p>I am eager to discuss how my practical experience with AI-driven projects, proven proficiency in
+                        Python, and robust problem-solving abilities can directly contribute to the role. I would
+                        appreciate
+                        the opportunity to connect for a brief 10-15 minute discussion at your earliest convenience to
+                        elaborate further on my qualifications and explore how my skill set aligns with your team's
+                        objectives.</p>
+                </div>
+                <div class="attachment-section"
+                    style="margin: 32px -24px -24px -24px; padding: 24px; border-top: 1px solid #E5E7EB; background-color: #F9FAFB; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                    <div
+                        style="font-size: 13px; color: #6B7280; display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <span style="font-weight: 600; color: #111827;">One attachment</span>
+                        <span>· Scanned by Gmail</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                    </div>
+                    <div class="attachment-card"
+                        style="width: 200px; border: 1px solid #E5E7EB; border-radius: 8px; background-color: #FFFFFF; display: flex; flex-direction: column; overflow: hidden; cursor: pointer;">
+                        <div
+                            style="height: 120px; background-color: #F3F4F6; display: flex; justify-content: center; align-items: center;">
+                            <div
+                                style="width: 48px; height: 60px; background-color: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 4px; display: flex; justify-content: center; align-items: center; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                                <div
+                                    style="position: absolute; top: 0; right: 0; width: 12px; height: 12px; background: linear-gradient(225deg, transparent 50%, #E5E7EB 50%);">
+                                </div>
+                                <span style="font-size: 10px; font-weight: 600; color: #9CA3AF;">PDF</span>
+                            </div>
+                        </div>
+                        <div
+                            style="padding: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: #111827; border-top: 1px solid #E5E7EB;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Resume.pdf
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-footer"
+                style="padding: 16px 24px; border-top: 1px solid #E5E7EB; display: flex; justify-content: space-between; align-items: center; background-color: #F9FAFB;">
+                <span style="font-size: 13px; color: #6B7280; display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    Press ESC or click outside to close preview
+                </span>
+                <button class="btn btn-dark" onclick="sendEmail()"
+                    style="padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; border: none; background-color: #121212; color: #FFFFFF; font-family: var(--font-family); display: flex; align-items: center; gap: 6px;">
+                    Send
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/job-details.js"></script>
+</body>
+
+</html>

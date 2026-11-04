@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workin' | Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/analytics.css">
+</head>
+
+</head>
+
+<body>
+    <!-- Toast Notification -->
+    <div id="toastNotification" style="position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1a1a18; color: #ffffff; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; z-index: 100000; display: none; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: opacity 0.3s ease; opacity: 0; pointer-events: none;"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo" style="cursor: pointer;" onclick="window.location.href='jobs-board.html'" title="Workin' Jobs">W</div>
+
+        <div class="nav-icon active" title="Dashboard">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+        </div>
+        <div class="nav-icon" title="Job Board" style="cursor: pointer;" onclick="window.location.href='jobs-board.html'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+            </svg>
+        </div>
+        <div class="nav-icon" title="Discover" style="cursor: pointer;" onclick="window.location.href='jobs-board.html'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+            </svg>
+        </div>
+        <div class="nav-icon has-dot" title="Onboarding Questionnaire" style="cursor: pointer;" onclick="window.location.href='onboarding.html'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+            </svg>
+        </div>
+
+        <div class="spacer"></div>
+        <div class="avatar" id="dashAvatar">BA</div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dash-container">
+        <div class="dash-frame">
+            
+            <!-- Header -->
+            <div class="dash-header">
+                <div>
+                    <h1 class="greeting" id="dashGreeting">Good afternoon, Bhavya</h1>
+                    <p class="greeting-sub" id="dashGreetingSub">Track your candidate outreach, delivery funnels, and recruiter response metrics.</p>
+                </div>
+                <div class="status-block">
+                    <div class="status-line"><div class="status-dot"></div>All systems normal</div>
+                    <div class="status-line" style="color: var(--text-tertiary);" id="dashSyncLine"><div class="status-dot synced"></div>Gmail synced just now</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="actions-strip">
+                <div class="action-card" style="cursor: pointer;" onclick="window.location.href='jobs-board.html'">
+                    <div class="action-icon">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                    </div>
+                    <div class="action-text">
+                        <span class="action-title">Write an outreach email</span>
+                        <span class="action-sub">Explore ranked job matches</span>
+                    </div>
+                </div>
+                <div class="action-card" style="cursor: pointer;" onclick="window.location.href='onboarding.html'">
+                    <div class="action-icon">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                        </svg>
+                    </div>
+                    <div class="action-text">
+                        <span class="action-title">Update matching profile</span>
+                        <span class="action-sub">Refine target roles &amp; skills</span>
+                    </div>
+                </div>
+                <div class="action-card" style="cursor: pointer;" onclick="syncInbox()">
+                    <div class="action-icon">
+                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </div>
+                    <div class="action-text">
+                        <span class="action-title">Check for replies</span>
+                        <span class="action-sub">Scan Gmail inbox now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Layout Grid -->
+            <div class="dash-grid">
+                
+                <!-- Left Column -->
+                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                    
+                    <!-- Stats Strip -->
+                    <div class="stat-group">
+                        <div class="stat-box">
+                            <span class="stat-label">Sent</span>
+                            <span class="stat-value" id="statSent">0</span>
+                            <span class="stat-note" id="statSentNote">Total dispatched</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Opened</span>
+                            <span class="stat-value" id="statOpened">0</span>
+                            <span class="stat-note" id="statOpenedNote">Recruiter views</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Replied</span>
+                            <span class="stat-value" id="statReplied">0</span>
+                            <span class="stat-note" id="statRepliedNote">Responses</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-label">Interviews</span>
+                            <span class="stat-value" id="statInterviews">0</span>
+                            <span class="stat-note" id="statInterviewsNote">Invites scheduled</span>
+                        </div>
+                    </div>
+
+                    <!-- Funnel Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Where things stand</h2>
+                        </div>
+                        <div class="funnel-list">
+                            <div class="funnel-item">
+                                <span class="funnel-label">Sent</span>
+                                <div class="funnel-track"><div class="funnel-fill" id="funnelFillSent" style="width: 100%">0 so far</div></div>
+                                <span class="funnel-count" id="funnelCountSent">0</span>
+                            </div>
+                            <div class="funnel-item">
+                                <span class="funnel-label">Opened</span>
+                                <div class="funnel-track"><div class="funnel-fill accent" id="funnelFillOpened" style="width: 4%">0</div></div>
+                                <span class="funnel-count" id="funnelCountOpened">0</span>
+                            </div>
+                            <div class="funnel-item">
+                                <span class="funnel-label">Replied</span>
+                                <div class="funnel-track"><div class="funnel-fill accent" id="funnelFillReplied" style="width: 4%">0</div></div>
+                                <span class="funnel-count" id="funnelCountReplied">0</span>
+                            </div>
+                            <div class="funnel-item">
+                                <span class="funnel-label">Interviews</span>
+                                <div class="funnel-track"><div class="funnel-fill accent" id="funnelFillInterviews" style="width: 4%">0</div></div>
+                                <span class="funnel-count" id="funnelCountInterviews">0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">What's happening</h2>
+                    </div>
+                    <div id="activityContainer">
+                        <div class="activity-empty" id="activityEmpty">
+                            <h3 class="activity-empty-title">Quiet for now.</h3>
+                            <p class="activity-empty-desc">Send your first email and replies, opens, and interview requests will start showing up right here.</p>
+                            <button class="btn-primary" onclick="window.location.href='jobs-board.html'">Explore matched jobs</button>
+                        </div>
+                        <div id="activityList" style="display: none; padding: 16px 20px; overflow-y: auto; max-height: 380px;">
+                            <!-- Injected by script -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+
+</html>
